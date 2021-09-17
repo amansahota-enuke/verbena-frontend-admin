@@ -676,6 +676,36 @@ input,label,span,p,li,ul
   background-position: 0 -366px;
 }
 
+.patient
+{
+  background-position: 0 -397px;
+}
+
+.left-menu a:hover span.sprite-menu.patient
+{
+  background-position: 0 -424px;
+}
+
+.provider
+{
+  background-position: 0 -564px;
+}
+
+.left-menu a:hover span.sprite-menu.provider
+{
+  background-position: 0 -591px;
+}
+
+.payment
+{
+  background-position: 0 -619px;
+}
+
+.left-menu a:hover span.sprite-menu.payment
+{
+  background-position: 0 -646px;
+}
+
 /* ul li css */
 
 ul#tabs li
