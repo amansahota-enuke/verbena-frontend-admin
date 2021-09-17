@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FullWidthContainer } from "../..";
+import { FullWidthContainer, Pagination } from "../..";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import selector from "../../../redux/selector";
@@ -248,20 +248,12 @@ function PatientList() {
                             )}
                         </tbody>
                     </table>
-                    <ReactPaginate
-                        previousLabel={"previous"}
-                        nextLabel={"next"}
-                        breakLabel={"..."}
-                        breakClassName={"break-me"}
-                        pageCount={pageCount}
-                        marginPagesDisplayed={2}
-                        pageRangeDisplayed={5}
-                        onPageChange={handlePageChange}
-                        containerClassName={"pagination"}
-                        activeClassName={"active"}
-                    />
                 </div>
             </div>
+            <Pagination
+                pageCount={pageCount}
+                handlePageChange={handlePageChange}
+            />
         </FullWidthContainer>
     );
 }

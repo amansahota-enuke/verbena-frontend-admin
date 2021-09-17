@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FullWidthContainer } from "../..";
+import { FullWidthContainer, Pagination } from "../..";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import selector from "../../../redux/selector";
@@ -219,7 +219,7 @@ function Index() {
                                             {Number(payment.amount) / 100}
                                         </td>
                                         <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                            <DocumentDownloadIcon className="w-5" />
+                                            <DocumentDownloadIcon className="w-5 m-auto" />
                                         </td>
                                         <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
                                             <Link
@@ -234,20 +234,12 @@ function Index() {
                             )}
                         </tbody>
                     </table>
-                    <ReactPaginate
-                        previousLabel={"previous"}
-                        nextLabel={"next"}
-                        breakLabel={"..."}
-                        breakClassName={"break-me"}
-                        pageCount={pageCount}
-                        marginPagesDisplayed={2}
-                        pageRangeDisplayed={5}
-                        onPageChange={handlePageChange}
-                        containerClassName={"pagination"}
-                        activeClassName={"active"}
-                    />
                 </div>
             </div>
+            <Pagination
+                pageCount={pageCount}
+                handlePageChange={handlePageChange}
+            />
         </FullWidthContainer>
     );
 }
