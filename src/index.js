@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-phone-number-input/style.css";
 
-toast.configure();
+// toast.configure();
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>

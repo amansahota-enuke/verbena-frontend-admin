@@ -240,6 +240,8 @@ function ProviderList() {
                                                 checked={
                                                     Number(provider.status) ===
                                                     1
+                                                        ? true
+                                                        : false
                                                 }
                                                 onChange={(e) =>
                                                     updateProviderStatus(
@@ -251,7 +253,7 @@ function ProviderList() {
                                                     Number(provider.status) ===
                                                     1
                                                         ? "primary-bg-color"
-                                                        : "primary-dim-bg-color"
+                                                        : "primary-light-bg-color"
                                                 } relative inline-flex items-center h-6 rounded-full w-11`}
                                             >
                                                 <span className="sr-only">

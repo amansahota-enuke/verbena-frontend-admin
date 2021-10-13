@@ -44,8 +44,8 @@ const LoginForm = (props) => {
             <div className="bg-white p-10 login-box px-5 xl:px-8 lg:px-8 md:px-3 sm:px-3 py-10 mb-10">
                 <div className="flex xl:flex-nowrap lg:flex-nowrap md:flex-wrap justify-between mb-10 items-end">
                     <div>
-                        <h1 className="hepta-bold primary-text-color">
-                            Log In
+                        <h1 className="hepta-bold primary-text-color login-heading">
+                            Administrator Log In
                         </h1>
                     </div>
                     <div>

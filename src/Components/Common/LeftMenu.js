@@ -29,9 +29,7 @@ const LeftMenu = ({ show }) => {
                         title="Patient Dashboard"
                     >
                         <span className="icon sprite-menu dashboard"></span>
-                        <span className="title uppercase">
-                            Dashboard
-                        </span>
+                        <span className="title uppercase">Dashboard</span>
                     </Link>
 
                     <Link
