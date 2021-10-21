@@ -250,10 +250,12 @@ function PatientList() {
                     </table>
                 </div>
             </div>
-            <Pagination
-                pageCount={pageCount}
-                handlePageChange={handlePageChange}
-            />
+            {patientCount > 0 && (
+                <Pagination
+                    pageCount={pageCount}
+                    handlePageChange={handlePageChange}
+                />
+            )}
         </FullWidthContainer>
     );
 }

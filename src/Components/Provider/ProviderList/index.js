@@ -286,10 +286,12 @@ function ProviderList() {
                     </table>
                 </div>
             </div>
-            <Pagination
-                pageCount={pageCount}
-                handlePageChange={handlePageChange}
-            />
+            {providerCount > 0 && (
+                <Pagination
+                    pageCount={pageCount}
+                    handlePageChange={handlePageChange}
+                />
+            )}
         </FullWidthContainer>
     );
 }

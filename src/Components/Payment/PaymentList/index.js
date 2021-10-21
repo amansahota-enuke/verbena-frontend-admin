@@ -236,10 +236,12 @@ function Index() {
                     </table>
                 </div>
             </div>
-            <Pagination
-                pageCount={pageCount}
-                handlePageChange={handlePageChange}
-            />
+            {paymentCount > 0 && (
+                <Pagination
+                    pageCount={pageCount}
+                    handlePageChange={handlePageChange}
+                />
+            )}
         </FullWidthContainer>
     );
 }

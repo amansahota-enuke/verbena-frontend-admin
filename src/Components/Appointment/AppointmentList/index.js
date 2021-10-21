@@ -370,10 +370,12 @@ function AppointmentList() {
                     </div>
                 </div>
             </div>
-            <Pagination
-                pageCount={pageCount}
-                handlePageChange={handlePageChange}
-            />
+            {appointmentCount > 0 && (
+                <Pagination
+                    pageCount={pageCount}
+                    handlePageChange={handlePageChange}
+                />
+            )}
         </FullWidthContainer>
     );
 }
