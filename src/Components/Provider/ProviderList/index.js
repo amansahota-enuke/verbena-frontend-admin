@@ -86,7 +86,7 @@ function ProviderList() {
                     </h3>
                 </div>
                 <div className="p-4 wrapper-content">
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
                         <div className="relative">
                             <input
                                 type="text"
@@ -135,14 +135,14 @@ function ProviderList() {
                             <div className="flex">
                                 <button
                                     type="button"
-                                    className="btn-search calibre-bold font-18 uppercase primary-bg-color text-white mr-3"
+                                    className="btn-search calibre-regular font-16 uppercase primary-bg-color text-white mr-3"
                                     onClick={() => getProviderList()}
                                 >
                                     Search
                                 </button>
                                 <button
                                     type="button"
-                                    className="btn-reset calibre-bold font-18 uppercase primary-light-bg-color primary-text-color mr-3"
+                                    className="btn-reset calibre-regular font-16 uppercase primary-light-bg-color primary-text-color mr-3"
                                     onClick={resetSearch}
                                 >
                                     Reset
