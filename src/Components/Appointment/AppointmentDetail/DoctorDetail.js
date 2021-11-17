@@ -31,7 +31,7 @@ function DoctorDetail({ selectedAppointment }) {
                             <div>
                                 <h3 className="hepta-slab mb-2 text-xl leading-none">
                                 {selectedAppointment.provider &&
-                                        `Dr.${parseName(
+                                        `Dr. ${parseName(
                                             selectedAppointment.provider
                                                 .first_name
                                         )} ${parseName(

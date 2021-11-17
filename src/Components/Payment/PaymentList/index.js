@@ -199,7 +199,7 @@ function Index() {
                                             )}`}
                                         </td>
                                         <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                            {`Dr.${parseName(
+                                            {`Dr. ${parseName(
                                                 payment.appointment.provider
                                                     .first_name
                                             )} ${parseName(
