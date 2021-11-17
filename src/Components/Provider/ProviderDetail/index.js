@@ -84,7 +84,7 @@ function Index(props) {
                                                     <i className="fas fa-graduation-cap"></i>
                                                 </div>
                                                 <div className="light-dark-gray-color font-18">
-                                                    {providerDetail.hospital_affiliations &&
+                                                    {/* {providerDetail.hospital_affiliations &&
                                                         JSON.parse(
                                                             providerDetail.hospital_affiliations
                                                         ).map(
@@ -105,7 +105,7 @@ function Index(props) {
                                                                     return `${hospital.value}, `;
                                                                 }
                                                             }
-                                                        )} */}
+                                                        )}  */}
                                                     M.D in {providerDetail &&
                                                     providerDetail.provider_speciality_master &&
                                                     providerDetail
