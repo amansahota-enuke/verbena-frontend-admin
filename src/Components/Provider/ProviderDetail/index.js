@@ -84,7 +84,7 @@ function Index(props) {
                                                     <i className="fas fa-graduation-cap"></i>
                                                 </div>
                                                 <div className="light-gray-color text-base">
-                                                    {providerDetail.hospital_affiliations &&
+                                                   {/* M.D in {providerDetail.hospital_affiliations &&
                                                         JSON.parse(
                                                             providerDetail.hospital_affiliations
                                                         ).map(
@@ -105,7 +105,12 @@ function Index(props) {
                                                                     return `${hospital.value}, `;
                                                                 }
                                                             }
-                                                        )}
+                                                        )} */}
+                                                    M.D in {providerDetail &&
+                                                    providerDetail.provider_speciality_master &&
+                                                    providerDetail
+                                                        .provider_speciality_master
+                                                        .name}
                                                 </div>
                                             </div>
                                             <div className="provider-address flex xl:flex-nowrap md:flex-wrap mb-4">
@@ -129,7 +134,7 @@ function Index(props) {
                                                                 .address.city
                                                         }, ${
                                                             providerDetail
-                                                                .address.state
+                                                                .address.state.state_name
                                                         } ${
                                                             providerDetail
                                                                 .address.zipcode
@@ -283,12 +288,12 @@ function Index(props) {
                                         {providerDetail.languages_spoken &&
                                             JSON.parse(
                                                 providerDetail.languages_spoken
-                                            ).map((language, index) => (
+                                            ).map((lang, index) => (
                                                 <p
                                                     className="mid-dark-gray-color mb-2 text-lg"
                                                     key={index}
                                                 >
-                                                    {language.value}
+                                                    {index===providerDetail.languages_spoken.length-1?lang.value:`${lang.value}, `}
                                                 </p>
                                             ))}
                                     </div>
@@ -325,7 +330,7 @@ function Index(props) {
                                             Consultation Fees
                                         </h2>
                                         <p className="mid-dark-gray-color mb-2 text-lg">
-                                            {providerDetail.consultation_fee}
+                                        {`$`}{providerDetail.consultation_fee}
                                         </p>
                                     </div>
                                 </div>
