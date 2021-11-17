@@ -80,7 +80,7 @@ function AppointmentTable() {
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody className="bg-white divide-y divide-gray-200">
+                                <tbody className="bg-white divide-y divide-gray-200 calibre-regular">
                                     {appointmentStatus ===
                                     statusConstants.PENDING ? (
                                         <ButtonLoader color="#000" />

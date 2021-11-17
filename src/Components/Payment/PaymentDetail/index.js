@@ -20,7 +20,7 @@ function Index() {
     return (
         <FullWidthContainer>
             {(paymentStatus === statusConstants.PENDING) === <Loader />}
-            <h4>Payment Summary</h4>
+            <h4 className="mb-4">Payment Summary</h4>
 
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mb-5">
                 <div className="box-header thead-bg p-3">
@@ -61,7 +61,7 @@ function Index() {
                     </div>
 
                     <div className="overflow-hidden border mb-6">
-                        <table className="min-w-full">
+                        <table className="min-w-full calibre-regular">
                             <thead className="calibre-regular thead-gray-bg ">
                                 <tr>
                                     <th
@@ -101,7 +101,7 @@ function Index() {
                     </div>
 
                     <div className="overflow-hidden mb-6">
-                        <table className="min-w-full">
+                        <table className="min-w-full calibre-regular">
                             <thead className="calibre-regular thead-gray-bg border-l border-r">
                                 <tr>
                                     <th
@@ -212,7 +212,7 @@ function Index() {
                     <div className="flex justify-end">
                         <button
                             type="submit"
-                            className="btn-login calibre-bold font-18 uppercase primary-bg-color text-white"
+                            className="btn-login calibre-regular font-18 uppercase primary-bg-color text-white"
                         >
                             <i className="fas fa-print"></i> Print
                         </button>

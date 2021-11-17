@@ -66,30 +66,30 @@ function PatientDetail() {
                                     )} ${parseName(selectedPatient.last_name)}`}
                                 </h3>
                                 <div className="flex flex-nowrap mb-1">
-                                    <div className="font-18 light-dark-gray-color mr-3 pr-3 leading-tight border-r-2">
+                                    <div className="font-16 calibre-regular light-dark-gray-color mr-3 pr-3 leading-tight border-r-2">
                                         {selectedPatient.gender === "M"
                                             ? "Male"
                                             : "Female"}
                                     </div>
-                                    <div className="font-18 light-dark-gray-color leading-tight">
+                                    <div className="font-16 calibre-regular light-dark-gray-color leading-tight">
                                         {selectedPatient.dob &&
                                             getAge(selectedPatient.dob)}
                                     </div>
                                 </div>
                                 <div className="flex flex-nowrap mb-1">
-                                    <div className="font-18 light-dark-gray-color mr-3 pr-3 leading-tight">
+                                    <div className="font-16 calibre-regular light-dark-gray-color mr-3 pr-3 leading-tight">
                                         <PhoneIcon className="h-5 w-5" />
                                     </div>
-                                    <div className="font-18 light-dark-gray-color leading-tight">
+                                    <div className="font-16 calibre-regular light-dark-gray-color leading-tight">
                                         {selectedPatient &&
                                             selectedPatient.mobile_number}
                                     </div>
                                 </div>
                                 <div className="flex flex-nowrap">
-                                    <div className="font-18 light-dark-gray-color mr-3 pr-3 leading-tight">
+                                    <div className="font-16 calibre-regular light-dark-gray-color mr-3 pr-3 leading-tight">
                                         <MailIcon className="h-5 w-5" />
                                     </div>
-                                    <div className="font-18 light-dark-gray-color leading-tight">
+                                    <div className="font-16 calibre-regular light-dark-gray-color leading-tight">
                                         {selectedPatient &&
                                             selectedPatient.email}
                                     </div>
