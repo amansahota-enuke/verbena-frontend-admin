@@ -100,7 +100,7 @@ function AppointmentList() {
                     </h3>
                 </div>
                 <div className="p-4 wrapper-content">
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
                         <div className="relative">
                             <input
                                 type="text"
@@ -194,7 +194,7 @@ function AppointmentList() {
                         </div>
                         <div className="relative">
                             <select
-                                className="custom-input input-border-color border text-justify"
+                                className="custom-input input-border-color border text-justify font-16"
                                 value={status}
                                 onChange={(e) => setStatus(e.target.value)}
                             >
@@ -217,14 +217,14 @@ function AppointmentList() {
                             <div className="flex">
                                 <button
                                     type="button"
-                                    className="btn-search calibre-bold font-18 uppercase primary-bg-color text-white mr-3"
+                                    className="btn-search calibre-regular font-16 uppercase primary-bg-color text-white mr-3"
                                     onClick={() => getAppointment()}
                                 >
                                     Search
                                 </button>
                                 <button
                                     type="button"
-                                    className="btn-reset calibre-bold font-18 uppercase primary-light-bg-color primary-text-color mr-3"
+                                    className="btn-reset calibre-regular font-16 uppercase primary-light-bg-color primary-text-color mr-3"
                                     onClick={resetSearch}
                                 >
                                     Reset
@@ -298,7 +298,7 @@ function AppointmentList() {
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody className="bg-white divide-y divide-gray-200">
+                                <tbody className="bg-white divide-y divide-gray-200 calibre-regular">
                                     {appointmentStatus ===
                                     statusConstants.PENDING ? (
                                         <ButtonLoader color="#000" />

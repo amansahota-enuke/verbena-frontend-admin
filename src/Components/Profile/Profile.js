@@ -109,7 +109,7 @@ const Profile = () => {
                 <div className="form-content xl:px-32 lg:px-32 md:px-16 sm:px-10 px-4 py-10">
                     <div className="flex justify-between mb-10 items-end">
                         <div>
-                            <h1 className="hepta-bold primary-text-color whitespace-nowrap">
+                            <h1 className="hepta-bold font-32 primary-text-color whitespace-nowrap">
                                 Edit Profile
                             </h1>
                         </div>
@@ -213,11 +213,11 @@ const Profile = () => {
                 </div>
 
                 <div className="form-footer xl:px-32 lg:px-32 md:px-16 sm:px-10 px-4 border-t-2 py-10">
-                    <div className="flex items-center justify-end">
+                    <div className="flex items-center justify-start">
                         <Link
                             disabled={processing}
                             type="button"
-                            className="disabled:opacity-50 btn-create-account calibre-bold font-18 uppercase primary-text-color mr-3"
+                            className="disabled:opacity-50 btn-create-account calibre-regular font-16 uppercase primary-text-color mr-3"
                             to="/home/dashboard"
                         >
                             Cancel
@@ -225,7 +225,7 @@ const Profile = () => {
                         <button
                             disabled={processing}
                             type="submit"
-                            className="disabled:opacity-50 btn-login calibre-bold font-18 uppercase primary-bg-color text-white"
+                            className="disabled:opacity-50 btn-login calibre-regular font-16 uppercase primary-bg-color text-white"
                         >
                             <span>
                                 {processing ? <ButtonLoader /> : "Update"}

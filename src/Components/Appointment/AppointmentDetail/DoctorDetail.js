@@ -47,7 +47,7 @@ function DoctorDetail({ selectedAppointment }) {
                                     <div className="edu-icon mr-3">
                                         <i className="fas fa-graduation-cap"></i>
                                     </div>
-                                    <div className="light-gray-color text-base calibre-regular">
+                                    <div className="light-dark-gray-color font-18">
                                         {selectedAppointment.provider && selectedAppointment.provider.hospital_affiliations}
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@ function DoctorDetail({ selectedAppointment }) {
                                     <div className="address-icon mr-3">
                                         <i className="fas fa-map-marker-alt"></i>
                                     </div>
-                                    <div className="light-gray-color text-base calibre-regular">
+                                    <div className="light-dark-gray-color font-18">
                                         {selectedAppointment.provider && selectedAppointment.provider.address &&
                                             `${selectedAppointment.provider.address.address_line1}, ${
                                                 selectedAppointment.provider.address.address_line2 &&

@@ -107,7 +107,7 @@ function NewPassForm(props) {
                         <div className="d-flex items-center mb-5">
                             <button
                                 type="submit"
-                                className="btn-login calibre-bold font-18 uppercase primary-bg-color text-white mr-3"
+                                className="btn-login calibre-regular font-16 uppercase primary-bg-color text-white mr-3"
                             >
                                 Update Password
                             </button>

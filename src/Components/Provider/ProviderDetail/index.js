@@ -33,14 +33,14 @@ function Index(props) {
             <button
                 onClick={() => history.goBack()}
                 type="button"
-                className="px-4 py-2 rounded-full mb-3 calibre-regular leading-none font-14 uppercase primary-bg-color text-white"
+                className="px-4 py-2 rounded-full mb-3 calibre-regular leading-none font-18 uppercase primary-bg-color text-white"
             >
                 <i className="fas fa-arrow-left mr-2"></i> Back
             </button>
             {providerStatus === statusConstants.PENDING && <Loader />}
             <>
                 <div className="page-title">
-                    <h2 className="hepta-bold text-center primary-text-color mb-10">
+                    <h2 className="hepta-bold text-left primary-text-color mb-10">
                         Provider Profile
                     </h2>
                 </div>
@@ -72,19 +72,19 @@ function Index(props) {
                                                         providerDetail.last_name
                                                     )}`}
                                             </h3>
-                                            <h6 className="text-base uppercase mb-4 light-gray-color">
+                                            <h6 className="font-18 calibre-regular uppercase mb-1 light-dark-gray-color">
                                                 {providerDetail &&
                                                     providerDetail.provider_speciality_master &&
                                                     providerDetail
                                                         .provider_speciality_master
                                                         .name}
                                             </h6>
-                                            <div className="provider-education flex items-center xl:flex-nowrap md:flex-wrap mb-4 whitespace-nowrap">
+                                            <div className="provider-education calibre-regular flex items-center xl:flex-nowrap md:flex-wrap mb-0 whitespace-nowrap">
                                                 <div className="edu-icon mr-3">
                                                     <i className="fas fa-graduation-cap"></i>
                                                 </div>
-                                                <div className="light-gray-color text-base">
-                                                   {/* M.D in {providerDetail.hospital_affiliations &&
+                                                <div className="light-dark-gray-color font-18">
+                                                    {providerDetail.hospital_affiliations &&
                                                         JSON.parse(
                                                             providerDetail.hospital_affiliations
                                                         ).map(
@@ -113,11 +113,11 @@ function Index(props) {
                                                         .name}
                                                 </div>
                                             </div>
-                                            <div className="provider-address flex xl:flex-nowrap md:flex-wrap mb-4">
+                                            <div className="provider-address calibre-regular flex xl:flex-nowrap md:flex-wrap mb-4">
                                                 <div className="address-icon mr-3">
                                                     <i className="fas fa-map-marker-alt"></i>
                                                 </div>
-                                                <div className="light-gray-color text-base">
+                                                <div className="light-dark-gray-color font-18">
                                                     {providerDetail &&
                                                         providerDetail.address &&
                                                         `${
