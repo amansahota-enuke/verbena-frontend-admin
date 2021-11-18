@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import moment from "moment";
 
 import { FullWidthContainer, Loader } from "../..";
 import statusConstants from "../../../constants/status.constants";
@@ -34,7 +35,7 @@ function Index() {
                                 Home Address
                             </h3>
                             <h5 className="calibre-regular text-black text-2xl mb-2">
-                                Verbena
+                                {selectedPayment.appointment && selectedPayment.appointment.patient && `${selectedPayment.appointment.patient.first_name} ${selectedPayment.appointment.patient.last_name}`}
                             </h5>
                             <div className="address w-48 ">
                                 <p className="calibre-regular mid-dark-gray-color font-20">
@@ -49,12 +50,12 @@ function Index() {
                                 Bill To
                             </h3>
                             <h5 className="calibre-regular text-black text-2xl mb-2">
-                                Joe Smith
+                            {selectedPayment.appointment && selectedPayment.appointment.provider && `${selectedPayment.appointment.provider.first_name} ${selectedPayment.appointment.provider.last_name}`}
                             </h5>
                             <div className="address w-48 ">
                                 <p className="calibre-regular mid-dark-gray-color font-20">
-                                    D 103, Verbana Hospital,h Opposite Town
-                                    Hall,h Avenue New York-10001
+                                {selectedPayment.appointment && selectedPayment.appointment.provider && selectedPayment.appointment.provider.address && selectedPayment.appointment.provider.address.address_line1}
+
                                 </p>
                             </div>
                         </div>
@@ -87,10 +88,12 @@ function Index() {
                             <tbody className="bg-white">
                                 <tr>
                                     <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                        34576819
+                                        {selectedPayment.payment_intent_id && selectedPayment.payment_intent_id}
                                     </td>
                                     <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                        18 April 2021 | 4:40PM
+                                    {moment(
+                                            selectedPayment.created_on
+                                        ).format("D MMMM YYYY hh:mm A")}
                                     </td>
                                     <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
                                         <span className="success">Success</span>
@@ -145,13 +148,13 @@ function Index() {
                                         Consultation Charges
                                     </td>
                                     <td className="border-b border-l border-r px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                        Dr. Robert
+                                    {selectedPayment.appointment && selectedPayment.appointment.provider && `${selectedPayment.appointment.provider.first_name} ${selectedPayment.appointment.provider.last_name}`} 
                                     </td>
                                     <td className="border-b border-l border-r px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                        18 April 2021 | 4:40PM
+                                    {selectedPayment.appointment &&  moment(selectedPayment.appointment.appointment_datetime).format("D MMMM YYYY hh:mm A")}
                                     </td>
                                     <td className="border-b border-l border-r px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                        $20
+                                        
                                     </td>
                                 </tr>
                                 <tr>
