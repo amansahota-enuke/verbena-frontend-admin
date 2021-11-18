@@ -18,9 +18,15 @@ const Dashboard = () => {
     const appointmentStatus = useSelector(selector.appointmentStatus);
 
     useEffect(() => {
-        dispatch(PatientActions.fetchPatientList());
-        dispatch(ProviderActions.fetchProviderList());
-        dispatch(AppointmentActions.fetchAppointmentList());
+        dispatch(PatientActions.fetchPatientList({
+            sort:'DESC'
+        }));
+        dispatch(ProviderActions.fetchProviderList({
+            sort:'DESC'
+        }));
+        dispatch(AppointmentActions.fetchAppointmentList({
+            sort:'DESC'
+        }));
     }, []);
 
     return (

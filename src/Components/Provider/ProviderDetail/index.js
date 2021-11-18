@@ -154,20 +154,9 @@ function Index(props) {
                                 About me
                             </h3>
                             <p className="about-content mid-dark-gray-color text-base mb-2">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est
-                                laborum.hExcepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui offici.h
+                            {providerDetail.bio}
                             </p>
-                            <p className="about-content mid-dark-gray-color text-base mb-2">
+                            {/* <p className="about-content mid-dark-gray-color text-base mb-2">
                                 Sed ut perspiciatis unde omnis iste natus error
                                 sit voluptatem accusantium doloremque
                                 laudantium, totam rem aperiam, eaque ipsa quae
@@ -188,7 +177,7 @@ function Index(props) {
                                 quam nihil molestiae consequatur, vel illum qui
                                 dolorem eum fugiat quo voluptas nulla pariatu.
                                 qui dolorem ipsum quia dolor sit amet.h
-                            </p>
+                            </p> */}
                         </div>
                     </div>
 
