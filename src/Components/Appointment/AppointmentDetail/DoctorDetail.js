@@ -43,7 +43,7 @@ function DoctorDetail({ selectedAppointment }) {
                                     {selectedAppointment.provider && selectedAppointment.provider.provider_speciality_master && 
                                         selectedAppointment.provider.provider_speciality_master.name}
                                 </h6>
-                                <div className="provider-education calibre-regular flex items-center xl:flex-nowrap md:flex-wrap mb-3 whitespace-nowrap">
+                                <div className="provider-education calibre-regular flex items-center xl:flex-nowrap md:flex-wrap mb-0 whitespace-nowrap">
                                     <div className="edu-icon mr-3">
                                         <i className="fas fa-graduation-cap"></i>
                                     </div>

@@ -50,7 +50,7 @@ function PatientDetail({ selectedAppointment }) {
                                                 .last_name
                                         )}`}
                                 </h3>
-                                <div className="flex flex-nowrap mb-1">
+                                <div className="flex flex-nowrap mb-0 calibre-regular">
                                     <div className="font-18 light-dark-gray-color mr-3 pr-3 leading-tight border-r-2">
                                         {selectedAppointment.patient &&
                                         selectedAppointment.patient.gender ===
@@ -65,7 +65,7 @@ function PatientDetail({ selectedAppointment }) {
                                             )}
                                     </div>
                                 </div>
-                                <div className="flex flex-nowrap mb-1">
+                                <div className="flex flex-nowrap mb-0 calibre-regular">
                                     <div className="font-18 light-dark-gray-color mr-3 pr-3 leading-tight border-r-2">
                                         {moment(
                                             selectedAppointment.appointment_datetime
@@ -75,7 +75,7 @@ function PatientDetail({ selectedAppointment }) {
                                     {moment(selectedAppointment.appointment_datetime, "hh:mm").format('LT')}  
                                     </div>
                                 </div>
-                                <div className="flex flex-nowrap">
+                                <div className="flex flex-nowrap calibre-regular">
                                     <div className="font-18 light-dark-gray-color">
                                         Reason for your visit{" "}
                                         <span className="text-black calibre-bold">
