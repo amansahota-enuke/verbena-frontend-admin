@@ -20,7 +20,7 @@ const signUp = createAsyncThunk("user/signUp", async (payload, thunkApi) => {
         const response = await UserService.signUp(payload);
         TokenService.setToken(response.data.data.token);
         toast.success(response.data.message);
-        return response.data.data.patient;
+        return response.data.data.admin;
     } catch (error) {
         toast.error(error.response.data.message);
         return thunkApi.rejectWithValue("error");

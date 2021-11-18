@@ -48,7 +48,7 @@ function DoctorDetail({ selectedAppointment }) {
                                         <i className="fas fa-graduation-cap"></i>
                                     </div>
                                     <div className="light-dark-gray-color font-18">
-                                        {selectedAppointment.provider && selectedAppointment.provider.hospital_affiliations}
+                                        {`M.D in ${selectedAppointment.provider && selectedAppointment.provider.provider_speciality_master && selectedAppointment.provider.provider_speciality_master.name}`}
                                     </div>
                                 </div>
                                 <div className="provider-address calibre-regular flex xl:flex-nowrap md:flex-wrap">
@@ -59,12 +59,9 @@ function DoctorDetail({ selectedAppointment }) {
                                         {selectedAppointment.provider && selectedAppointment.provider.address &&
                                             `${selectedAppointment.provider.address.address_line1}, ${
                                                 selectedAppointment.provider.address.address_line2 &&
-                                                JSON.parse(
-                                                    selectedAppointment.provider.address.address_line2
-                                                ) !== null &&
                                                 selectedAppointment.provider.address.address_line2 + ","
                                             } ${selectedAppointment.provider.address.city}, ${
-                                                selectedAppointment.provider.address.state
+                                                selectedAppointment.provider.address.state.state_name
                                             } ${selectedAppointment.provider.address.zipcode}`}
                                     </div>
                                 </div>

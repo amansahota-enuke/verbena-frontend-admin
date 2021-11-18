@@ -211,11 +211,13 @@ function Index() {
 
                     <div className="flex justify-end">
                         <button
+                            // onclick={window.print()}
                             type="submit"
                             className="btn-login calibre-regular font-18 uppercase primary-bg-color text-white"
                         >
                             <i className="fas fa-print"></i> Print
                         </button>
+                        {/* <button onclick={window.print()}>Print this page</button> */}
                     </div>
                 </div>
             </div>
