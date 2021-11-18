@@ -14,7 +14,7 @@ const Header = ({ handleToggle }) => {
                                     <span className="sr-only">Verbena</span>
                                     <img
                                             className="xl:w-40 lg:w-40 md:w-40 sm:w-32 w-32"
-                                            src="/images/logo.png"
+                                            src="/images/logos.png"
                                             alt=""
                                         />
                                 </NavLink>
