@@ -17,7 +17,7 @@ function Report({ oldReports }) {
 
     return (
         <>
-            <h4 className="hepta-slab mb-4">Lab Test</h4>
+            <h4 className="hepta-slab mb-4 mt-4">Lab Test</h4>
             <div className="bg-white rounded-md mb-6">
                 <div className="content">
                     {oldReports.map((report, index) => (
