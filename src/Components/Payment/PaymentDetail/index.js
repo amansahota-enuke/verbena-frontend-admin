@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import moment from "moment";
@@ -13,10 +13,26 @@ function Index() {
     const dispatch = useDispatch();
     const paymentStatus = useSelector(selector.paymentStatus);
     const selectedPayment = useSelector(selector.selectedPayment);
-
+    const [consultationFee,setConsultationFee] = useState(0)
+    const [totalFee,setTotalFee] = useState(0)
     useEffect(() => {
         dispatch(PaymentActions.fetchPaymentDetail(paymentId));
     }, []);
+
+    useEffect(() => {
+        const fee = selectedPayment.amount === 5000?50:30
+        setConsultationFee(fee)
+        const finalFee = fee + 60 + 10
+        setTotalFee(finalFee)
+    }, []);
+
+    const openPrintWindow = () => {
+        return window.print(
+            "_blank",
+            "toolbar=0,location=0,menubar=0,width=400,height=300"
+        );
+        
+    };
 
     return (
         <FullWidthContainer>
@@ -50,12 +66,15 @@ function Index() {
                                 Bill To
                             </h3>
                             <h5 className="calibre-regular text-black text-2xl mb-2">
-                            {selectedPayment.appointment && selectedPayment.appointment.provider && `${selectedPayment.appointment.provider.first_name} ${selectedPayment.appointment.provider.last_name}`}
+                                {selectedPayment.appointment && selectedPayment.appointment.provider && `${selectedPayment.appointment.provider.first_name} ${selectedPayment.appointment.provider.last_name}`}
                             </h5>
                             <div className="address w-48 ">
                                 <p className="calibre-regular mid-dark-gray-color font-20">
-                                {selectedPayment.appointment && selectedPayment.appointment.provider && selectedPayment.appointment.provider.address && selectedPayment.appointment.provider.address.address_line1}
-
+                                    {selectedPayment.appointment && selectedPayment.appointment.provider && selectedPayment.appointment.provider.address &&
+                                        `${selectedPayment.appointment.provider.address.address_line1}, ${selectedPayment.appointment.provider.address.address_line2 &&
+                                            selectedPayment.appointment.provider.address.address_line2 + ","
+                                        } ${selectedPayment.appointment.provider.address.city && selectedPayment.appointment.provider.address.city}, ${selectedPayment.appointment.provider.address.state && selectedPayment.appointment.provider.address.state.state_name
+                                        } ${selectedPayment.appointment.provider.address.zipcode && selectedPayment.appointment.provider.address.zipcode}`}
                                 </p>
                             </div>
                         </div>
@@ -91,7 +110,7 @@ function Index() {
                                         {selectedPayment.payment_intent_id && selectedPayment.payment_intent_id}
                                     </td>
                                     <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                    {moment(
+                                        {moment(
                                             selectedPayment.created_on
                                         ).format("D MMMM YYYY hh:mm A")}
                                     </td>
@@ -148,13 +167,13 @@ function Index() {
                                         Consultation Charges
                                     </td>
                                     <td className="border-b border-l border-r px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                    {selectedPayment.appointment && selectedPayment.appointment.provider && `${selectedPayment.appointment.provider.first_name} ${selectedPayment.appointment.provider.last_name}`} 
+                                        {selectedPayment.appointment && selectedPayment.appointment.provider && `${selectedPayment.appointment.provider.first_name} ${selectedPayment.appointment.provider.last_name}`}
                                     </td>
                                     <td className="border-b border-l border-r px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                    {selectedPayment.appointment &&  moment(selectedPayment.appointment.appointment_datetime).format("D MMMM YYYY hh:mm A")}
+                                        {selectedPayment.appointment && moment(selectedPayment.appointment.appointment_datetime).format("D MMMM YYYY hh:mm A")}
                                     </td>
                                     <td className="border-b border-l border-r px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                        
+                                        {`$${consultationFee}`}
                                     </td>
                                 </tr>
                                 <tr>
@@ -205,7 +224,7 @@ function Index() {
                                         <strong>Total Amount</strong>
                                     </td>
                                     <td className="thead-gray-bg border-l border-r border-b px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                        $90
+                                        {`$${totalFee}`}
                                     </td>
                                 </tr>
                             </tbody>
@@ -214,13 +233,12 @@ function Index() {
 
                     <div className="flex justify-end">
                         <button
-                            // onclick={window.print()}
+                        onClick = {openPrintWindow}
                             type="submit"
                             className="btn-login calibre-regular font-18 uppercase primary-bg-color text-white"
                         >
                             <i className="fas fa-print"></i> Print
                         </button>
-                        {/* <button onclick={window.print()}>Print this page</button> */}
                     </div>
                 </div>
             </div>
