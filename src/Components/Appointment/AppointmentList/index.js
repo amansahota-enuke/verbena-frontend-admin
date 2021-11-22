@@ -30,6 +30,10 @@ function AppointmentList() {
     const [endDate, setEndDate] = useState("");
     const [status, setStatus] = useState("");
 
+    const clearFilter = () => {
+        dispatch(AppointmentActions.fetchAppointmentList({}))
+    }
+
     const getAppointment = (page = null) => {
         dispatch(
             AppointmentActions.fetchAppointmentList({
@@ -76,7 +80,7 @@ function AppointmentList() {
         setStartDate("");
         setEndDate("");
         setStatus("");
-        getAppointment();
+        clearFilter()
     };
 
     const people = [

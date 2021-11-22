@@ -25,6 +25,9 @@ function ProviderList() {
     const [providerNumber, setProviderNumber] = useState("");
     const [providerEmail, setProviderEmail] = useState("");
 
+    const clearFilter = () => {
+        dispatch(ProviderActions.fetchProviderList({}))
+    }
     const getProviderList = (page = null) => {
         dispatch(
             ProviderActions.fetchProviderList({
@@ -59,7 +62,7 @@ function ProviderList() {
         setProviderName("");
         setProviderNumber("");
         setProviderEmail("");
-        getProviderList();
+        clearFilter()
     };
 
     const updateProviderStatus = async (providerId, value) => {

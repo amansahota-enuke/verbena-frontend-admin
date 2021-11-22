@@ -25,6 +25,9 @@ function PatientList() {
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");
 
+    const clearFilter = () => {
+        dispatch(PatientActions.fetchPatientList({}))
+    }
     const getPatientList = (page = null) => {
         dispatch(
             PatientActions.fetchPatientList({
@@ -63,7 +66,7 @@ function PatientList() {
         setPatientEmail("");
         setStartDate("");
         setEndDate("");
-        getPatientList();
+        clearFilter()
     };
 
     return (
