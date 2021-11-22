@@ -18,7 +18,7 @@ function AppointmentTable() {
         <>
             <h4 className="hepta-slab mb-4">Appointments</h4>
             <div className="flex flex-col">
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto appointmentTable">
                     <div className="align-middle inline-block min-w-full">
                         <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                             <table className="min-w-full divide-y divide-gray-200">

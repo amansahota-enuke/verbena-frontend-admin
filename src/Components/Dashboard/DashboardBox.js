@@ -12,16 +12,28 @@ function DashboardBox() {
   useEffect(() => {
     $("#providerHeader").click(function() {
       $('html,body').animate({
-          scrollTop: $(".providerTable").offset().top},
+          scrollTop: $(".providerTable").offset().top-150},
           'slow');
   });
+
+  $("#patientHeader").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".patientTable").offset().top-150},
+        'slow');
+});
+
+$("#appointmentHeader").click(function() {
+  $('html,body').animate({
+      scrollTop: $(".appointmentTable").offset().top-150},
+      'slow');
+});
 }, []);
 
   return (
     <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-3 mb-6">
-      <div className="bg-white rounded-lg py-4 px-4">
+      <div className="bg-white rounded-lg py-4 px-4 pointer cursor-pointer" id="patientHeader">
           <div className="flex items-center justify-between">
-            <div id="patientHeader">
+            <div>
               <h4 className="count-title hepta-semibold light-dark-gray-color text-2xl">
                 Patients
               </h4>
@@ -34,9 +46,9 @@ function DashboardBox() {
             </div>
           </div>
       </div>
-      <div className="bg-white rounded-lg py-4 px-4">
+      <div className="bg-white rounded-lg py-4 px-4 cursor-pointer" id="providerHeader">
         <div className="flex items-center justify-between">
-          <div id="providerHeader">
+          <div>
             <h4 className="count-title hepta-semibold light-dark-gray-color text-2xl">
               Providers
             </h4>
@@ -49,9 +61,9 @@ function DashboardBox() {
           </div>
         </div>
       </div>
-      <div className="bg-white rounded-lg py-4 px-4">
+      <div className="bg-white rounded-lg py-4 px-4 cursor-pointer" id="appointmentHeader">
         <div className="flex items-center justify-between">
-          <div id="appointmentHeader">
+          <div>
             <h4 className="count-title hepta-semibold light-dark-gray-color text-2xl">
               Appointments
             </h4>
