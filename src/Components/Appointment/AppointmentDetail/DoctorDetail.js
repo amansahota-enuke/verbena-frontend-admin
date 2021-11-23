@@ -48,7 +48,17 @@ function DoctorDetail({ selectedAppointment }) {
                                         <i className="fas fa-graduation-cap"></i>
                                     </div>
                                     <div className="light-dark-gray-color font-18">
-                                        {`M.D in ${selectedAppointment.provider && selectedAppointment.provider.provider_speciality_master && selectedAppointment.provider.provider_speciality_master.name}`}
+                                    {selectedAppointment.provider && 
+                                                JSON.parse(
+                                                    selectedAppointment.provider.board_certifications
+                                                ).map((board, index) => (
+                                                    <p
+                                                        className="mid-dark-gray-color text-lg"
+                                                        key={index}
+                                                    >
+                                                        {board.value}
+                                                    </p>
+                                                ))}
                                     </div>
                                 </div>
                                 <div className="provider-address calibre-regular flex xl:flex-nowrap md:flex-wrap">

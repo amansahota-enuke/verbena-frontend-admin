@@ -84,33 +84,17 @@ function Index(props) {
                                                     <i className="fas fa-graduation-cap"></i>
                                                 </div>
                                                 <div className="light-dark-gray-color font-18">
-                                                    {/* {providerDetail.hospital_affiliations &&
-                                                        JSON.parse(
-                                                            providerDetail.hospital_affiliations
-                                                        ).map(
-                                                            (
-                                                                hospital,
-                                                                index
-                                                            ) => {
-                                                                let test =
-                                                                    index + 1;
-                                                                if (
-                                                                    providerDetail
-                                                                        .hospital_affiliations
-                                                                        .length ===
-                                                                    test
-                                                                ) {
-                                                                    return hospital.value;
-                                                                } else {
-                                                                    return `${hospital.value}, `;
-                                                                }
-                                                            }
-                                                        )}  */}
-                                                    M.D in {providerDetail &&
-                                                    providerDetail.provider_speciality_master &&
-                                                    providerDetail
-                                                        .provider_speciality_master
-                                                        .name}
+                                                    {providerDetail.board_certifications &&
+                                                JSON.parse(
+                                                    providerDetail.board_certifications
+                                                ).map((board, index) => (
+                                                    <p
+                                                        className="mid-dark-gray-color text-lg"
+                                                        key={index}
+                                                    >
+                                                        {board.value}
+                                                    </p>
+                                                ))}
                                                 </div>
                                             </div>
                                             <div className="provider-address calibre-regular flex xl:flex-nowrap md:flex-wrap mb-4">
