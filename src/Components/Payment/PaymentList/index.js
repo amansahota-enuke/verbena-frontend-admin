@@ -9,6 +9,7 @@ import { PaymentActions } from "../../../redux/slice/payment.slice";
 import statusConstants from "../../../constants/status.constants";
 import ButtonLoader from "../../Common/ButtonLoader";
 import moment from "moment";
+import { PaymentService } from "../../../services";
 import { DocumentDownloadIcon } from "@heroicons/react/solid";
 
 function Index() {
@@ -63,6 +64,30 @@ function Index() {
         setEndDate("");
         getPaymentList();
     };
+
+    async function savePdf(paymentId) {
+        //     const file = await AppointmentService.getPdf(id);
+        //     const fileBlog = await file.blob();
+        //     const fileURL = URL.createObjectURL(fileBlog);
+    
+        //     const link = document.createElement("a");
+        //     link.href = fileURL;
+        //     link.download = fileName;
+        //     document.body.appendChild(link);
+        //     link.click();
+        //     document.body.removeChild(link);
+        const response = await PaymentService.fetchPaymentReceipt(paymentId);
+        const file = await fetch(`${process.env.REACT_APP_API_SERVER_URL}/pdf/${response.data.data}`);
+        const fileBlog = await file.blob();
+        const fileURL = URL.createObjectURL(fileBlog);
+    
+        const link = document.createElement("a");
+        link.href = fileURL;
+        link.download = response.data.data;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+         }
 
     return (
         <FullWidthContainer>
@@ -220,7 +245,11 @@ function Index() {
                                             {Number(payment.amount) / 100}
                                         </td>
                                         <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
+                                            <button
+                                            onClick = {()=>savePdf(payment.id)}
+                                            >
                                             <DocumentDownloadIcon className="w-5 m-auto" />
+                                            </button>
                                         </td>
                                         <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
                                             <Link
