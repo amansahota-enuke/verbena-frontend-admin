@@ -76,7 +76,7 @@ function AppointmentTable() {
                                             scope="col"
                                             className="dark-gray-color px-6 py-3 text-center font-18 uppercase tracking-wider"
                                         >
-                                            Action
+                                            Details
                                         </th>
                                     </tr>
                                 </thead>

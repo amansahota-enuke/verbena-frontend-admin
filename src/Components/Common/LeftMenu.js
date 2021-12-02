@@ -26,7 +26,7 @@ const LeftMenu = ({ show }) => {
                     <Link
                         className="block border-b-1 pl-4 pr-4 pt-3 pb-3 calibre-regular"
                         to="/home/dashboard"
-                        title="Patient Dashboard"
+                        title="Dashboard"
                     >
                         <span className="icon sprite-menu dashboard"></span>
                         <span className="title capitalize font-18 pl-3">Dashboard</span>
