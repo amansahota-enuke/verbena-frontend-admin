@@ -27,6 +27,7 @@ import ProviderList from "./Provider/ProviderList";
 import ProviderDetail from "./Provider/ProviderDetail";
 import PaymentList from "./Payment/PaymentList";
 import PaymentDetail from "./Payment/PaymentDetail";
+import SubscriptionList from "./Subscriptions/SubscriptionList"
 
 export {
     //Common
@@ -59,4 +60,6 @@ export {
     ProviderDetail,
     PaymentList,
     PaymentDetail,
+    //Subscriptions
+    SubscriptionList,
 };

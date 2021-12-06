@@ -9,6 +9,7 @@ import {
     PaymentPage,
     ProfilePage,
     ProviderPage,
+    SubscriptionPage,
 } from "../Pages";
 import { Header, LeftMenu, Error } from "../Components";
 
@@ -58,6 +59,10 @@ const Layout = ({ match }) => {
                     <Route
                         path={`${match.path}/payments`}
                         component={PaymentPage}
+                    />
+                    <Route
+                        path={`${match.path}/subscriptions`}
+                        component={SubscriptionPage}
                     />
                     <Route component={Error} />
                 </Switch>

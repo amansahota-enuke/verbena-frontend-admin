@@ -29,4 +29,6 @@ export default {
     paymentList: (state) => state.payment.paymentList,
     paymentCount: (state) => state.payment.count,
     selectedPayment: (state) => state.payment.selectedPayment,
+    subscriptionList: (state) => state.payment.subscriptionList,
+    subscriptionCount: (state) => state.payment.subscriptionCount,
 };

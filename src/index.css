@@ -713,6 +713,16 @@ img.profile-image {
   background-position: 0 -646px;
 }
 
+.subscription
+{
+  background-position: 0 -676px;
+}
+
+.left-menu a:hover span.sprite-menu.subscription
+{
+  background-position: 0 -705px;
+}
+
 /* ul li css */
 
 ul#tabs li
