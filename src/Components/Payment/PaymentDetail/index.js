@@ -86,7 +86,7 @@ function Index() {
                                         scope="col"
                                         className="dark-gray-color px-6 py-3 text-center font-18 uppercase tracking-wider"
                                     >
-                                        Invoice
+                                        TransactionId
                                     </th>
                                     <th
                                         scope="col"
@@ -105,7 +105,7 @@ function Index() {
                             <tbody className="bg-white">
                                 <tr>
                                     <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                        {selectedPayment.payment_intent_id && selectedPayment.payment_intent_id}
+                                        {selectedPayment && selectedPayment.id}
                                     </td>
                                     <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
                                         {moment(

@@ -67,7 +67,7 @@ function SubscriptionList() {
             <div className="bg-white rounded-md mb-6">
                 <div className="border-b-1 p-4 wrapper-title">
                     <h3 className="mb-0 hepta-slab text-lg leading-none">
-                        Search Patients
+                        Search Subscriptions
                     </h3>
                 </div>
                 <div className="p-4 wrapper-content">
