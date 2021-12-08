@@ -31,7 +31,7 @@ function DoctorDetail({ selectedAppointment }) {
                             <div>
                                 <h3 className="hepta-slab mb-2 text-xl leading-none">
                                 {selectedAppointment.provider &&
-                                        `Dr.${parseName(
+                                        `Dr. ${parseName(
                                             selectedAppointment.provider
                                                 .first_name
                                         )} ${parseName(
@@ -43,28 +43,35 @@ function DoctorDetail({ selectedAppointment }) {
                                     {selectedAppointment.provider && selectedAppointment.provider.provider_speciality_master && 
                                         selectedAppointment.provider.provider_speciality_master.name}
                                 </h6>
-                                <div className="provider-education calibre-regular flex items-center xl:flex-nowrap md:flex-wrap mb-3 whitespace-nowrap">
+                                <div className="provider-education calibre-regular flex items-center xl:flex-nowrap md:flex-wrap mb-0 whitespace-nowrap">
                                     <div className="edu-icon mr-3">
                                         <i className="fas fa-graduation-cap"></i>
                                     </div>
-                                    <div className="light-gray-color text-base calibre-regular">
-                                        {selectedAppointment.provider && selectedAppointment.provider.hospital_affiliations}
+                                    <div className="light-dark-gray-color font-18">
+                                    {selectedAppointment.provider && 
+                                                JSON.parse(
+                                                    selectedAppointment.provider.board_certifications
+                                                ).map((board, index) => (
+                                                    <p
+                                                        className="mid-dark-gray-color text-lg"
+                                                        key={index}
+                                                    >
+                                                        {board.value}
+                                                    </p>
+                                                ))}
                                     </div>
                                 </div>
                                 <div className="provider-address calibre-regular flex xl:flex-nowrap md:flex-wrap">
                                     <div className="address-icon mr-3">
                                         <i className="fas fa-map-marker-alt"></i>
                                     </div>
-                                    <div className="light-gray-color text-base calibre-regular">
+                                    <div className="light-dark-gray-color font-18">
                                         {selectedAppointment.provider && selectedAppointment.provider.address &&
                                             `${selectedAppointment.provider.address.address_line1}, ${
                                                 selectedAppointment.provider.address.address_line2 &&
-                                                JSON.parse(
-                                                    selectedAppointment.provider.address.address_line2
-                                                ) !== null &&
                                                 selectedAppointment.provider.address.address_line2 + ","
                                             } ${selectedAppointment.provider.address.city}, ${
-                                                selectedAppointment.provider.address.state
+                                                selectedAppointment.provider.address.state.state_name
                                             } ${selectedAppointment.provider.address.zipcode}`}
                                     </div>
                                 </div>

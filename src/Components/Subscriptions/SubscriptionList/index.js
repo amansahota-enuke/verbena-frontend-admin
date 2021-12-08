@@ -5,54 +5,52 @@ import { Link, useRouteMatch } from "react-router-dom";
 import selector from "../../../redux/selector";
 import ReactDatePicker from "react-datepicker";
 import ReactPaginate from "react-paginate";
-import { PatientActions } from "../../../redux/slice/patient.slice";
+import { PaymentActions } from "../../../redux/slice/payment.slice";
 import statusConstants from "../../../constants/status.constants";
 import ButtonLoader from "../../Common/ButtonLoader";
 import moment from "moment";
 
-function PatientList() {
+function SubscriptionList() {
     const dispatch = useDispatch();
     const { path } = useRouteMatch();
-    const patientStatus = useSelector(selector.patientStatus);
-    const patientCount = useSelector(selector.patientCount);
-    const patientList = useSelector(selector.patientList);
+    const paymentSatus = useSelector(selector.paymentStatus)
+    const subscriptionCount = useSelector(selector.subscriptionCount);
+    const SubscriptionList = useSelector(selector.subscriptionList);
 
     const [pageCount, setPageCount] = useState(1);
-    const [patientId, setPatientId] = useState("");
-    const [patientName, setPatientName] = useState("");
-    const [patientNumber, setPatientNumber] = useState("");
-    const [patientEmail, setPatientEmail] = useState("");
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
+    const [userType, setUserType] = useState("patient");
+    const [status, setStatus] = useState("");
+    // const [patientNumber, setPatientNumber] = useState("");
+    // const [patientEmail, setPatientEmail] = useState("");
+    // const [startDate, setStartDate] = useState("");
+    // const [endDate, setEndDate] = useState("");
 
-    const clearFilter = () => {
-        dispatch(PatientActions.fetchPatientList({}))
+    const clearFilter = (page = null) => {
+        dispatch(PaymentActions.fetchSubscriptionList({
+            ...(page && { page }),
+                type: userType,
+        }))
     }
-    const getPatientList = (page = null) => {
+    const getSubscriptionList = (page = null) => {
         dispatch(
-            PatientActions.fetchPatientList({
+            PaymentActions.fetchSubscriptionList({
                 ...(page && { page }),
-                ...(patientId && { patient_id: patientId }),
-                ...(patientName && { patient_name: patientName }),
-                ...(patientNumber && { patient_number: patientNumber }),
-                ...(patientEmail && { patient_email: patientEmail }),
-                ...(startDate && { start_date: startDate }),
-                ...(endDate && { end_date: endDate }),
+                type: userType,
+                ...(status && { status }),
             })
         );
     };
 
     useEffect(() => {
-        setPageCount(Math.ceil(Number(patientCount) / 10));
-    }, [patientCount]);
+        setPageCount(Math.ceil(Number(subscriptionCount) / 10));
+    }, [subscriptionCount]);
 
     const handlePageChange = ({ selected }) => {
-        getPatientList(selected);
+        getSubscriptionList(Number(selected)+1);
     };
 
     useEffect(() => {
-        getPatientList();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        getSubscriptionList()
     }, []);
 
     const parseName = (name) => {
@@ -60,12 +58,7 @@ function PatientList() {
     };
 
     const resetSearch = () => {
-        setPatientId("");
-        setPatientName("");
-        setPatientNumber("");
-        setPatientEmail("");
-        setStartDate("");
-        setEndDate("");
+        setStatus("")
         clearFilter()
     };
 
@@ -74,73 +67,38 @@ function PatientList() {
             <div className="bg-white rounded-md mb-6">
                 <div className="border-b-1 p-4 wrapper-title">
                     <h3 className="mb-0 hepta-slab text-lg leading-none">
-                        Search Patients
+                        Search Subscriptions
                     </h3>
                 </div>
                 <div className="p-4 wrapper-content">
                     <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
                         <div className="relative">
-                            <input
-                                type="text"
+                            <select
                                 className="custom-input input-border-color border text-justify"
-                                placeholder="Patient Name"
-                                value={patientName}
-                                onChange={(e) => setPatientName(e.target.value)}
-                            />
+                                value={userType}
+                                onChange={(e) => setUserType(e.target.value)}
+                            >
+                                <option value="patient">Patient</option>
+                                <option value="provider">Provider</option>
+                            </select>
                         </div>
                         <div className="relative">
-                            <input
-                                type="text"
+                            <select
                                 className="custom-input input-border-color border text-justify"
-                                placeholder="Patient Mobile"
-                                value={patientNumber}
-                                onChange={(e) =>
-                                    setPatientNumber(e.target.value)
-                                }
-                            />
-                        </div>
-                        <div className="relative">
-                            <input
-                                type="text"
-                                className="custom-input input-border-color border text-justify"
-                                placeholder="Patient Email"
-                                nvalue={patientEmail}
-                                onChange={(e) =>
-                                    setPatientEmail(e.target.value)
-                                }
-                            />
-                        </div>
-                        <div className="relative">
-                            <input
-                                type="text"
-                                className="custom-input input-border-color border text-justify"
-                                placeholder="Patient ID"
-                                value={patientId}
-                                onChange={(e) => setPatientId(e.target.value)}
-                            />
-                        </div>
-                        <div className="relative">
-                            <ReactDatePicker
-                                className="custom-input input-border-color border text-justify"
-                                selected={startDate}
-                                onChange={(date) => setStartDate(date)}
-                                placeholderText="Start Date"
-                            />
-                        </div>
-                        <div className="relative">
-                            <ReactDatePicker
-                                className="custom-input input-border-color border text-justify"
-                                selected={endDate}
-                                onChange={(date) => setEndDate(date)}
-                                placeholderText="End Date"
-                            />
+                                value={status}
+                                onChange={(e) => setStatus(e.target.value)}
+                            >
+                                <option value="">All</option>
+                                <option value={false}>Active</option>
+                                <option value={true}>Cancelled</option>
+                            </select>
                         </div>
                         <div className="relative">
                             <div className="flex">
                                 <button
                                     type="button"
                                     className="btn-search calibre-regular font-16 uppercase primary-bg-color text-white mr-3"
-                                    onClick={() => getPatientList()}
+                                    onClick={() => getSubscriptionList()}
                                 >
                                     Search
                                 </button>
@@ -167,13 +125,13 @@ function PatientList() {
                                         scope="col"
                                         className="dark-gray-color px-6 py-3 text-center font-18 uppercase tracking-wider"
                                     >
-                                        ID
+                                        Subscription ID
                                     </th>
                                     <th
                                         scope="col"
                                         className="dark-gray-color px-6 py-3 text-center font-18 uppercase tracking-wider"
                                     >
-                                        Patient Name
+                                        Name
                                     </th>
                                     <th
                                         scope="col"
@@ -197,55 +155,50 @@ function PatientList() {
                                         scope="col"
                                         className="dark-gray-color px-6 py-3 text-center font-18 uppercase tracking-wider"
                                     >
-                                        Date of Birth
+                                        Plan
                                     </th>
                                     <th
                                         scope="col"
                                         className="dark-gray-color px-6 py-3 text-center font-18 uppercase tracking-wider"
                                     >
-                                        Profile
+                                        Expiration
                                     </th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
-                                {patientStatus === statusConstants.PENDING ? (
+                                {paymentSatus === statusConstants.PENDING ? (
                                     <ButtonLoader color="#000" />
-                                ) : patientList.length === 0 ? (
-                                    <p>No Patients</p>
+                                ) : SubscriptionList.length === 0 ? (
+                                    <p>No Subscriptions</p>
                                 ) : (
-                                    patientList.map((patient) => (
-                                        <tr key={patient.id}>
+                                    SubscriptionList.map((subscription) => (
+                                        <tr key={subscription.id}>
                                             <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                                {patient.id}
+                                                {subscription.id}
                                             </td>
                                             <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                                {`${parseName(
-                                                    patient.first_name
-                                                )} ${parseName(patient.last_name)}`}
+                                                {subscription.patient ? `${parseName(
+                                                    subscription.patient.first_name
+                                                )} ${parseName(subscription.patient.last_name)}` : `${parseName(
+                                                    subscription.provider.first_name
+                                                )} ${parseName(subscription.provider.last_name)}`}
                                             </td>
                                             <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                                {patient.gender === "M"
-                                                    ? "Male"
-                                                    : "Female"}
+                                                {subscription.patient ? `${subscription.patient.gender === "M" ? "Male" : "Female"}` : `${subscription.provider.gender === "M" ? "Male" : "Female"}`}
                                             </td>
                                             <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                                {patient.mobile_number}
+                                                {subscription.patient ? subscription.patient.mobile_number : subscription.provider.mobile_number}
                                             </td>
                                             <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                                {patient.email}
+                                                {subscription.patient ? subscription.patient.email : subscription.provider.email}
                                             </td>
                                             <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                                {moment(patient.dob).format(
-                                                    "MM-DD-YYYY"
-                                                )}
+                                                ${Number(subscription.amount)/100}
                                             </td>
                                             <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
-                                                <Link
-                                                    to={`${path}/${patient.id}`}
-                                                    className="text-indigo-600 hover:text-indigo-900"
-                                                >
-                                                    <i className="fas fa-eye"></i>
-                                                </Link>
+                                                {`${moment(
+                                                    Number(JSON.parse(subscription.res_body).current_period_end + "000")
+                                                ).format("D MMMM YYYY")}`}
                                             </td>
                                         </tr>
                                     ))
@@ -255,7 +208,7 @@ function PatientList() {
                     </div>
                 </div>
             </div>
-            {patientCount > 0 && (
+            {subscriptionCount > 0 && (
                 <Pagination
                     pageCount={pageCount}
                     handlePageChange={handlePageChange}
@@ -265,4 +218,4 @@ function PatientList() {
     );
 }
 
-export default PatientList;
+export default SubscriptionList;

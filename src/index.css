@@ -1,36 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@600;700&display=swap');
 
 body
 {
-  font-family:'Calibre-Regular', sans-serif;
+  font-family:'Conv_Calibre-Regular',;
   background-color: #ebf4f3 ;
 }
 
 @font-face {
-  font-family: 'Calibre-Bold';
-  src: url('/src/fonts/Calibre-Bold.otf');
+	font-family: 'Conv_Calibre-Regular';
+	src: url('/src/fonts/Calibre-Regular.eot');
+	src: local('☺'), 
+  url('/src/fonts/Calibre-Regular.woff') format('woff'), 
+  url('/src/fonts/Calibre-Regular.ttf') format('truetype'), 
+  url('/src/fonts/Calibre-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family:'Calibre-Regular';
-  src: url('/src/fonts/Calibre-Regular.otf');
+	font-family: 'Conv_Calibre-Bold';
+	src: url('/src/fonts/Calibre-Bold.eot');
+	src: local('☺'), 
+  url('/src/fonts/Calibre-Bold.woff') format('woff'), 
+  url('/src/fonts/Calibre-Bold.ttf') format('truetype'), 
+  url('/src/fonts/Calibre-Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 /* font sizez */
@@ -84,12 +82,12 @@ body
 
 .calibre-bold
 {
-  font-family: 'Calibre-Bold';
+  font-family: 'Conv_Calibre-Bold';
 }
 
 .calibre-regular
 {
-  font-family:'Calibre-Regular';
+  font-family:'Conv_Calibre-Regular';
 }
 
 .hepta-bold
@@ -149,9 +147,11 @@ body
 .btn-login,
 .btn-create-account
 {
-  padding: 12px 35px;
+  padding: 0 20px;
   border-radius: 30px;
-  font-weight: 800;
+  font-weight: 700;
+  line-height: 40px;
+  min-height: 42px;
 }
 
 .btn-search,
@@ -159,7 +159,7 @@ body
 {
   padding: 12px 20px;
   border-radius: 30px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .btn-create-account
@@ -361,7 +361,7 @@ h6
 
 input,label,span,p,li,ul
 {
-  font-family:'Calibre-Regular', sans-serif;
+  font-family:'Conv_Calibre-Regular';
 }
 
 /* line height */
@@ -523,6 +523,12 @@ input,label,span,p,li,ul
   background-repeat: no-repeat;
 }
 
+img.profile-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
 .img-wrapper
 {
   width:247px;
@@ -599,6 +605,7 @@ input,label,span,p,li,ul
   background-position: 0 0;
   display: inline-block;
   background-size: 90%;
+  transition: all .3s ease-in-out;
 }
 
 .left-menu a span
@@ -706,6 +713,16 @@ input,label,span,p,li,ul
   background-position: 0 -646px;
 }
 
+.subscription
+{
+  background-position: 0 -676px;
+}
+
+.left-menu a:hover span.sprite-menu.subscription
+{
+  background-position: 0 -705px;
+}
+
 /* ul li css */
 
 ul#tabs li
@@ -744,7 +761,7 @@ ul#tabs li.active
   .main-panel{margin-left: 0;}
   .left-menu{left:-80px;}
   .main-panel.expanded{margin-left: 0;}
-  .main-panel.expanded .left-menu{left: 0;}
+  .main-panel.expanded .left-menu{left: 0;margin-top:75px;overflow: scroll;height: calc(100% - 75px);z-index: 9999;}
 }
 
 
@@ -765,39 +782,22 @@ ul#tabs li.active
 .left-menu{
   width: 60px;
   transition: all .3s ease-out;
-  margin-top: 92px;
+  margin-top: 85px;
   text-align: center;
 }
 
-/* .left-menu:hover
-{
-  width:300px;
+.header-shadow {
+  box-shadow: 0px 0px 8px 0px rgb(86 61 124 / 13%);
 }
-
-.left-menu:hover a
-{
-  text-align: left;
-} 
-
-.left-menu:hover span.title
-{
-  display: inline-block;
-  font-size: inherit;
-  transition: all .3s ease-out;
-}
-
-*/
 
 .left-menu span.title
 {
-  font-size: 0;
+  display: none;
 }
 
 .left-menu.expanded span.title
 {
   display: inline-block;
-  font-size: inherit;
-  transition: all .3s ease-out;
 }
 
 .left-menu button.app-btn {
@@ -811,8 +811,9 @@ ul#tabs li.active
 .left-menu.expanded
 {
   text-align: left;
-  width:300px;
+  width:270px;
   transition: all .3s ease;
+  box-shadow: 2px 5px 6px 0px #ddd;
 }
 
 .left-menu.expanded button
@@ -1008,4 +1009,21 @@ video {
 h1.login-heading
 {
   font-size: 32px;
+}
+
+.custom-pagination .pagination > li > a, 
+.custom-pagination .pagination > li > span
+{
+ color: #009b98;
+}
+
+.custom-pagination .pagination > li > a
+{
+  border: 1px solid #009b98;
+}
+
+.custom-pagination .pagination > li.active > a
+{
+  color: #fff;
+  background-color: #009b98;
 }

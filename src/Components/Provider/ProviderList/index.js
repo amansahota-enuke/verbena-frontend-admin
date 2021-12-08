@@ -25,6 +25,9 @@ function ProviderList() {
     const [providerNumber, setProviderNumber] = useState("");
     const [providerEmail, setProviderEmail] = useState("");
 
+    const clearFilter = () => {
+        dispatch(ProviderActions.fetchProviderList({}))
+    }
     const getProviderList = (page = null) => {
         dispatch(
             ProviderActions.fetchProviderList({
@@ -59,7 +62,7 @@ function ProviderList() {
         setProviderName("");
         setProviderNumber("");
         setProviderEmail("");
-        getProviderList();
+        clearFilter()
     };
 
     const updateProviderStatus = async (providerId, value) => {
@@ -86,7 +89,7 @@ function ProviderList() {
                     </h3>
                 </div>
                 <div className="p-4 wrapper-content">
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
                         <div className="relative">
                             <input
                                 type="text"
@@ -135,14 +138,14 @@ function ProviderList() {
                             <div className="flex">
                                 <button
                                     type="button"
-                                    className="btn-search calibre-bold font-18 uppercase primary-bg-color text-white mr-3"
+                                    className="btn-search calibre-regular font-16 uppercase primary-bg-color text-white mr-3"
                                     onClick={() => getProviderList()}
                                 >
                                     Search
                                 </button>
                                 <button
                                     type="button"
-                                    className="btn-reset calibre-bold font-18 uppercase primary-light-bg-color primary-text-color mr-3"
+                                    className="btn-reset calibre-regular font-16 uppercase primary-light-bg-color primary-text-color mr-3"
                                     onClick={resetSearch}
                                 >
                                     Reset
@@ -153,7 +156,8 @@ function ProviderList() {
                 </div>
             </div>
 
-            <div className="mb-8">
+            <div className="overflow-x-auto mb-8">
+                <div className="align-middle inline-block min-w-full">
                 <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50 calibre-regular thead-bg">
@@ -198,11 +202,11 @@ function ProviderList() {
                                     scope="col"
                                     className="dark-gray-color px-6 py-3 text-center font-18 uppercase tracking-wider"
                                 >
-                                    Action
+                                    Profile
                                 </th>
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-gray-200">
+                        <tbody className="bg-white divide-y divide-gray-200 calibre-regular">
                             {providerStatus === statusConstants.PENDING ? (
                                 <ButtonLoader color="#000" />
                             ) : providerList.length === 0 ? (
@@ -284,6 +288,7 @@ function ProviderList() {
                             )}
                         </tbody>
                     </table>
+                </div>
                 </div>
             </div>
             {providerCount > 0 && (

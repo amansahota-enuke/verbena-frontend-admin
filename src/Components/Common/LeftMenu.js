@@ -24,48 +24,57 @@ const LeftMenu = ({ show }) => {
             >
                 <div>
                     <Link
-                        className="block border-b-1 p-2 caliber-regular"
+                        className="block border-b-1 pl-4 pr-4 pt-3 pb-3 calibre-regular"
                         to="/home/dashboard"
-                        title="Patient Dashboard"
+                        title="Dashboard"
                     >
                         <span className="icon sprite-menu dashboard"></span>
-                        <span className="title uppercase">Dashboard</span>
+                        <span className="title capitalize font-18 pl-3">Dashboard</span>
                     </Link>
 
                     <Link
-                        className="block border-b-1 p-2 caliber-regular"
+                        className="block border-b-1 pl-4 pr-4 pt-3 pb-3 calibre-regular"
                         to="/home/appointments"
                         title="Appointments"
                     >
                         <span className="icon sprite-menu appointment"></span>
-                        <span className="title uppercase">Appointments</span>
+                        <span className="title capitalize font-18 pl-3">Appointments</span>
                     </Link>
 
                     <Link
-                        className="block border-b-1 p-2 caliber-regular"
+                        className="block border-b-1 pl-4 pr-4 pt-3 pb-3 calibre-regular"
                         to="/home/providers"
                         title="Provider"
                     >
                         <span className="icon sprite-menu provider"></span>
-                        <span className="title uppercase">Providers</span>
+                        <span className="title capitalize font-18 pl-3">Providers</span>
                     </Link>
 
                     <Link
-                        className="block border-b-1 p-2 caliber-regular"
+                        className="block border-b-1 pl-4 pr-4 pt-3 pb-3 calibre-regular"
                         to="/home/patients"
                         title="Patient"
                     >
                         <span className="icon sprite-menu patient"></span>
-                        <span className="title uppercase">Patients</span>
+                        <span className="title capitalize font-18 pl-3">Patients</span>
                     </Link>
 
                     <Link
-                        className="block border-b-1 p-2 caliber-regular"
+                        className="block border-b-1 pl-4 pr-4 pt-3 pb-3 calibre-regular"
                         to="/home/payments"
                         title="Payment"
                     >
                         <span className="icon sprite-menu payment"></span>
-                        <span className="title uppercase">Payments</span>
+                        <span className="title capitalize font-18 pl-3">Payments</span>
+                    </Link>
+
+                    <Link
+                        className="block border-b-1 pl-4 pr-4 pt-3 pb-3 calibre-regular"
+                        to="/home/subscriptions"
+                        title="Subscription"
+                    >
+                        <span className="icon sprite-menu subscription"></span>
+                        <span className="title capitalize font-18 pl-3">Subscriptions</span>
                     </Link>
                 </div>
             </div>

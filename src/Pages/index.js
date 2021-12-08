@@ -9,6 +9,7 @@ import AppointmentPage from "./Home/Appointment";
 import PatientPage from "./Home/Patient";
 import PaymentPage from "./Home/Payment";
 import ProviderPage from "./Home/Provider";
+import SubscriptionPage from "./Home/Subscriptions";
 
 export {
     //Auth
@@ -23,4 +24,5 @@ export {
     PatientPage,
     PaymentPage,
     ProviderPage,
+    SubscriptionPage,
 };

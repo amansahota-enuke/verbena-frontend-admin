@@ -39,23 +39,24 @@ export default function Example() {
     };
 
     return (
-        <Menu as="div" className="relative">
+        <Menu as="div" className="relative inline-block">
             {({ open }) => (
                 <>
                     <div>
-                        <Menu.Button className="inline-flex justify-center items-center">
+                        <Menu.Button className="calibre-regular">
                             <img
                                 src={
                                     profileImage
                                         ? profileImage
                                         : "/images/user.png"
                                 }
-                                className="mr-2 w-10 rounded-full"
+                                className="profile-image mr-2 w-10 h-10 inline-block border rounded-full"
                                 alt=""
                                 title=""
                             />
+                            <span className="font-18 xl:inline-block lg:inline-block md:inline-block sm:hidden hidden">
                             {!!user.first_name && parseName(user.first_name)}{" "}
-                            {!!user.last_name && parseName(user.last_name)}
+                            {!!user.last_name && parseName(user.last_name)}</span>
                         </Menu.Button>
                     </div>
 
@@ -80,9 +81,9 @@ export default function Example() {
                                             to="/home/profile"
                                             className={classNames(
                                                 active
-                                                    ? "bg-gray-100 text-gray-900"
-                                                    : "text-gray-700",
-                                                "block px-4 py-2 text-sm"
+                                                    ? "bg-gray-100 text-gray-900 calibre-regular"
+                                                    : "text-gray-700 calibre-regular",
+                                                "block px-4 py-2 text-sm font-16"
                                             )}
                                         >
                                             Profile
@@ -96,9 +97,9 @@ export default function Example() {
                                                 type="submit"
                                                 className={classNames(
                                                     active
-                                                        ? "bg-gray-100 text-gray-900"
-                                                        : "text-gray-700",
-                                                    "block w-full text-left px-4 py-2 text-sm"
+                                                        ? "bg-gray-100 text-gray-900 calibre-regular"
+                                                        : "text-gray-700 calibre-regular",
+                                                    "block w-full text-left px-4 py-2 font-16"
                                                 )}
                                             >
                                                 Sign out

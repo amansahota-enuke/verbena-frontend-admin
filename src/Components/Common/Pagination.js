@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 
 function Pagination({ pageCount, handlePageChange }) {
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center custom-pagination">
             <ReactPaginate
                 previousLabel={"previous"}
                 nextLabel={"next"}

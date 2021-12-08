@@ -33,14 +33,14 @@ function Index(props) {
             <button
                 onClick={() => history.goBack()}
                 type="button"
-                className="px-4 py-2 rounded-full mb-3 calibre-regular leading-none font-14 uppercase primary-bg-color text-white"
+                className="px-4 py-2 rounded-full mb-3 calibre-regular leading-none font-18 uppercase primary-bg-color text-white"
             >
                 <i className="fas fa-arrow-left mr-2"></i> Back
             </button>
             {providerStatus === statusConstants.PENDING && <Loader />}
             <>
                 <div className="page-title">
-                    <h2 className="hepta-bold text-center primary-text-color mb-10">
+                    <h2 className="hepta-bold text-left primary-text-color mb-10">
                         Provider Profile
                     </h2>
                 </div>
@@ -66,53 +66,42 @@ function Index(props) {
                                         <div>
                                             <h3 className="hepta-slab mb-3 text-2xl">
                                                 {providerDetail &&
-                                                    `Dr.${parseName(
+                                                    `Dr. ${parseName(
                                                         providerDetail.first_name
                                                     )} ${parseName(
                                                         providerDetail.last_name
                                                     )}`}
                                             </h3>
-                                            <h6 className="text-base uppercase mb-4 light-gray-color">
+                                            <h6 className="font-18 calibre-regular uppercase mb-1 light-dark-gray-color">
                                                 {providerDetail &&
                                                     providerDetail.provider_speciality_master &&
                                                     providerDetail
                                                         .provider_speciality_master
                                                         .name}
                                             </h6>
-                                            <div className="provider-education flex items-center xl:flex-nowrap md:flex-wrap mb-4 whitespace-nowrap">
+                                            <div className="provider-education calibre-regular flex items-center xl:flex-nowrap md:flex-wrap mb-0 whitespace-nowrap">
                                                 <div className="edu-icon mr-3">
                                                     <i className="fas fa-graduation-cap"></i>
                                                 </div>
-                                                <div className="light-gray-color text-base">
-                                                    {providerDetail.hospital_affiliations &&
-                                                        JSON.parse(
-                                                            providerDetail.hospital_affiliations
-                                                        ).map(
-                                                            (
-                                                                hospital,
-                                                                index
-                                                            ) => {
-                                                                let test =
-                                                                    index + 1;
-                                                                if (
-                                                                    providerDetail
-                                                                        .hospital_affiliations
-                                                                        .length ===
-                                                                    test
-                                                                ) {
-                                                                    return hospital.value;
-                                                                } else {
-                                                                    return `${hospital.value}, `;
-                                                                }
-                                                            }
-                                                        )}
+                                                <div className="light-dark-gray-color font-18">
+                                                    {providerDetail.board_certifications &&
+                                                JSON.parse(
+                                                    providerDetail.board_certifications
+                                                ).map((board, index) => (
+                                                    <p
+                                                        className="mid-dark-gray-color text-lg"
+                                                        key={index}
+                                                    >
+                                                        {board.value}
+                                                    </p>
+                                                ))}
                                                 </div>
                                             </div>
-                                            <div className="provider-address flex xl:flex-nowrap md:flex-wrap mb-4">
+                                            <div className="provider-address calibre-regular flex xl:flex-nowrap md:flex-wrap mb-4">
                                                 <div className="address-icon mr-3">
                                                     <i className="fas fa-map-marker-alt"></i>
                                                 </div>
-                                                <div className="light-gray-color text-base">
+                                                <div className="light-dark-gray-color font-18">
                                                     {providerDetail &&
                                                         providerDetail.address &&
                                                         `${
@@ -129,7 +118,7 @@ function Index(props) {
                                                                 .address.city
                                                         }, ${
                                                             providerDetail
-                                                                .address.state
+                                                                .address.state.state_name
                                                         } ${
                                                             providerDetail
                                                                 .address.zipcode
@@ -149,20 +138,9 @@ function Index(props) {
                                 About me
                             </h3>
                             <p className="about-content mid-dark-gray-color text-base mb-2">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum
-                                dolore eu fugiat nulla pariatur. Excepteur sint
-                                occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est
-                                laborum.hExcepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui offici.h
+                            {providerDetail.bio}
                             </p>
-                            <p className="about-content mid-dark-gray-color text-base mb-2">
+                            {/* <p className="about-content mid-dark-gray-color text-base mb-2">
                                 Sed ut perspiciatis unde omnis iste natus error
                                 sit voluptatem accusantium doloremque
                                 laudantium, totam rem aperiam, eaque ipsa quae
@@ -183,7 +161,7 @@ function Index(props) {
                                 quam nihil molestiae consequatur, vel illum qui
                                 dolorem eum fugiat quo voluptas nulla pariatu.
                                 qui dolorem ipsum quia dolor sit amet.h
-                            </p>
+                            </p> */}
                         </div>
                     </div>
 
@@ -283,12 +261,12 @@ function Index(props) {
                                         {providerDetail.languages_spoken &&
                                             JSON.parse(
                                                 providerDetail.languages_spoken
-                                            ).map((language, index) => (
+                                            ).map((lang, index) => (
                                                 <p
                                                     className="mid-dark-gray-color mb-2 text-lg"
                                                     key={index}
                                                 >
-                                                    {language.value}
+                                                    {index===providerDetail.languages_spoken.length-1?lang.value:`${lang.value}, `}
                                                 </p>
                                             ))}
                                     </div>
@@ -325,7 +303,7 @@ function Index(props) {
                                             Consultation Fees
                                         </h2>
                                         <p className="mid-dark-gray-color mb-2 text-lg">
-                                            {providerDetail.consultation_fee}
+                                        {`$`}{providerDetail.consultation_fee}
                                         </p>
                                     </div>
                                 </div>

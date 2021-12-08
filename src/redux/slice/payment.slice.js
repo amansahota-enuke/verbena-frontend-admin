@@ -31,9 +31,24 @@ const fetchPaymentDetail = createAsyncThunk(
     }
 );
 
+const fetchSubscriptionList = createAsyncThunk(
+    "payment/fetchSubscriptionList",
+    async (payload, thunkApi) => {
+        try {
+            const response = await PaymentService.getSubscriptionList(payload);
+            toast.success(response.data.message);
+            return response.data.data;
+        } catch (error) {
+            toast.error(error.response.data.message);
+            return thunkApi.rejectWithValue(error);
+        }
+    }
+);
+
 export const PaymentActions = {
     fetchPaymentList,
     fetchPaymentDetail,
+    fetchSubscriptionList
 };
 
 const PaymentSlice = createSlice({
@@ -43,6 +58,8 @@ const PaymentSlice = createSlice({
         count: 0,
         paymentList: [],
         selectedPayment: {},
+        subscriptionList: [],
+        subscriptionCount: 0,
     },
     extraReducers: {
         [fetchPaymentList.pending]: (state) => {
@@ -64,6 +81,17 @@ const PaymentSlice = createSlice({
             state.selectedPayment = action.payload;
         },
         [fetchPaymentDetail.rejected]: (state) => {
+            state.status = statusConstants.REJECTED;
+        },
+        [fetchSubscriptionList.pending]: (state) => {
+            state.status = statusConstants.PENDING;
+        },
+        [fetchSubscriptionList.fulfilled]: (state, action) => {
+            state.status = statusConstants.FULFILLED;
+            state.subscriptionCount = action.payload.count;
+            state.subscriptionList = action.payload.rows;
+        },
+        [fetchSubscriptionList.rejected]: (state) => {
             state.status = statusConstants.REJECTED;
         },
     },

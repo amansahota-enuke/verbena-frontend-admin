@@ -42,8 +42,8 @@ const BasicHealthInformation = () => {
             <Disclosure>
                 {({ open }) => (
                     <>
-                        <Disclosure.Button className="flex justify-between w-full py-4 text-sm font-medium text-left rounded-lg bg-white px-2 mb-3 mt-3">
-                            <h4 className="hepta-slab mb-0">
+                        <Disclosure.Button className="flex items-center justify-between w-full py-4 font-medium text-left rounded-t-lg rounded-r-lg rounded-b-none bg-white px-2 mb-0">
+                            <h4 className="hepta-slab font-32 mb-0">
                                 Basic Health Information
                             </h4>
                             <ChevronDownIcon
@@ -52,22 +52,22 @@ const BasicHealthInformation = () => {
                                 } w-5 h-5 text-purple-500`}
                             />
                         </Disclosure.Button>
-                        <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm">
-                            <div className="bg-white rounded-md mb-3">
+                        <Disclosure.Panel className="pb-2 text-sm">
+                            <div className="bg-white rounded-t-none mb-3">
                                 {basicQuestionnaire.map((question) => {
                                     const showQuestion =
                                         checkQuestion(question);
                                     if (showQuestion) {
                                         return (
                                             <div className="health-info border-b-1">
-                                                <h3 className="text-xl dark-color px-4 py-2 calibre-regular">
+                                                <h3 className="font-18 dark-color px-4 py-0 mb-0 pt-3 calibre-bold">
                                                     {question.text}
                                                 </h3>
                                                 {question.basic_health_responses
                                                     .length > 0 ? (
                                                     question.basic_health_responses.map(
                                                         (response) => (
-                                                            <p className="text-xl px-4 py-2 calibre-bold text-2x">
+                                                            <p className="font-16 px-4 py-0 mb-2 calibre-regular">
                                                                 {response.answer_text
                                                                     ? response.answer_text
                                                                     : response
@@ -77,7 +77,7 @@ const BasicHealthInformation = () => {
                                                         )
                                                     )
                                                 ) : (
-                                                    <p className="text-xl px-4 py-2 calibre-bold text-2x">
+                                                    <p className="font-16 px-4 py-0 mb-2 calibre-regular">
                                                         No Response
                                                     </p>
                                                 )}
