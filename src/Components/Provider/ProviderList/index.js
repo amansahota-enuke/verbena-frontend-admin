@@ -99,6 +99,11 @@ function ProviderList() {
                                 onChange={(e) =>
                                     setProviderName(e.target.value)
                                 }
+                                onKeyPress={(e) => {
+                                    if (e.key === "Enter") {
+                                        getProviderList();
+                                    }
+                                }}
                             />
                         </div>
                         <div className="relative">
@@ -110,6 +115,11 @@ function ProviderList() {
                                 onChange={(e) =>
                                     setProviderNumber(e.target.value)
                                 }
+                                onKeyPress={(e) => {
+                                    if (e.key === "Enter") {
+                                        getProviderList();
+                                    }
+                                }}
                             />
                         </div>
                         <div className="relative">
@@ -121,6 +131,11 @@ function ProviderList() {
                                 onChange={(e) =>
                                     setProviderEmail(e.target.value)
                                 }
+                                onKeyPress={(e) => {
+                                    if (e.key === "Enter") {
+                                        getProviderList();
+                                    }
+                                }}
                             />
                         </div>
                         <div className="relative">
