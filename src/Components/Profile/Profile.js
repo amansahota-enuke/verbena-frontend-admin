@@ -1,17 +1,14 @@
-import React, { Fragment, useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import PhoneInput from "react-phone-number-input";
-import { Controller, useFieldArray, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 
 import { UserActions } from "../../redux/slice/user.slice";
 import selector from "../../redux/selector";
 import statusConstants from "../../constants/status.constants";
 import { Loader, ButtonLoader } from "..";
-import { CommonService } from "../../services";
 
 const validationSchema = Yup.object({
     first_name: Yup.string().required("Firstname is a required field"),
@@ -34,7 +31,6 @@ const Profile = () => {
     const {
         register,
         handleSubmit,
-        control,
         setValue,
         formState: { errors },
     } = useForm({

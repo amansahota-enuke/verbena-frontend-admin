@@ -12,7 +12,6 @@ const SignUpForm = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [loader, setLoader] = useState(true);
     const [processing, setProcessing] = useState(false);
 
     const [image, setImage] = useState("");
@@ -146,6 +145,7 @@ const SignUpForm = (props) => {
                                                                 ? imageUrl
                                                                 : "images/profile-dummy.png"
                                                         }
+                                                        alt=""
                                                     />
                                                 </div>
                                                 <div>

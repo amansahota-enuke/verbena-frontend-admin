@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import selector from "../../../redux/selector";
 import ReactDatePicker from "react-datepicker";
-import ReactPaginate from "react-paginate";
 import { PatientActions } from "../../../redux/slice/patient.slice";
 import statusConstants from "../../../constants/status.constants";
 import ButtonLoader from "../../Common/ButtonLoader";

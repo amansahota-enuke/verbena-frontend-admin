@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import moment from "moment";
@@ -13,8 +13,6 @@ function Index() {
     const dispatch = useDispatch();
     const paymentStatus = useSelector(selector.paymentStatus);
     const selectedPayment = useSelector(selector.selectedPayment);
-    const [consultationFee, setConsultationFee] = useState(0)
-    const [totalFee, setTotalFee] = useState(0)
     useEffect(() => {
         dispatch(PaymentActions.fetchPaymentDetail(paymentId));
     }, []);

@@ -31,4 +31,8 @@ export default {
     selectedPayment: (state) => state.payment.selectedPayment,
     subscriptionList: (state) => state.payment.subscriptionList,
     subscriptionCount: (state) => state.payment.subscriptionCount,
+    //Newsletter Subscriptions Reducer
+    subscribersCount: (state) => state.newslettersubscribers.count,
+    subscriptionListStatus: (state) => state.newslettersubscribers.status,
+    newsLetterSubscriptions: (state) => state.newslettersubscribers.subscribersList,
 };

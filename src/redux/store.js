@@ -6,6 +6,7 @@ import PatientReducer from "./slice/patient.slice";
 import QuestionnaireReducer from "./slice/questionnaire.slice";
 import ProviderReducer from "./slice/provider.slice";
 import PaymentReducer from "./slice/payment.slice";
+import NewsletterSubscriptionsReducer from "./slice/newslettersubscriptions.slice"
 
 const store = configureStore({
     reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
         questionnaire: QuestionnaireReducer,
         provider: ProviderReducer,
         payment: PaymentReducer,
+        newslettersubscribers: NewsletterSubscriptionsReducer,
     },
 });
 

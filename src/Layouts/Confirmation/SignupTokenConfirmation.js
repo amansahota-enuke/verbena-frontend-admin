@@ -1,15 +1,28 @@
 import { Dialog } from "@headlessui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { ConfirmationActions } from "../../redux/slice/confirmation.slice";
+import { ProviderService } from "../../services";
 
 function SignupTokenConfirmation() {
   const dispatch = useDispatch();
-  const [text, setText] = useState("")
+  const [link, setLink] = useState("")
 
   const closeModal = () => {
+    navigator.clipboard.writeText(link)
+
     dispatch(ConfirmationActions.closeConfirmation());
   };
+
+
+  const getSignUpLink = async() => {
+    const response = await ProviderService.fetchSignupLink()
+    setLink(response.data.data)
+  }
+
+  useEffect(() => {
+    getSignUpLink()
+  },[])
 
   return (
     <>
@@ -20,38 +33,25 @@ function SignupTokenConfirmation() {
         Signup One time Generated Link
       </Dialog.Title>
       <div className="mt-2">
-        {/* <p className="text-sm text-gray-500">
-          Your payment has been successfully submitted. We’ve sent your an email
-          with all of the details of your order.
-        </p> */}
-        {/* <textarea className="input-border-color border h-40 w-full rounded-lg" type="text"  id="myInput" ></textarea> */}
         <input
           type="text"
           className="custom-input input-border-color border"
           placeholder="Signup Link"
           name="email"
-         // value="Hello World"
           id="myInput"
+          value={link}
+          disabled={true}
         />
-        {/* <button onClick={() => {navigator.clipboard.writeText("amit singh")}}>Copy text</button> */}
       </div>
 
       <div className="mt-4">
         <button
           type="button"
-          className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+          className="btn-login calibre-regular font-16 leading-none uppercase primary-bg-color text-white"
           onClick={closeModal}
-          onClick={() => {navigator.clipboard.writeText("amit singh")}}
         >
           Copy Link
         </button>
-        {/* <button
-          onClick={() =>
-            navigator.clipboard.writeText("Copy this text to clipbasasasoard")
-          }
-        >
-          Copy
-        </button> */}
       </div>
     </>
   );

@@ -1,7 +1,6 @@
 import {React,useEffect} from "react";
 import { useSelector } from "react-redux";
 import selector from "../../redux/selector";
-import { Link } from "react-router-dom";
 import $ from 'jquery'
 
 function DashboardBox() {

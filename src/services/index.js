@@ -6,6 +6,7 @@ import PatientService from "./patient.service";
 import QuestionnaireService from "./questionnaire.service";
 import ProviderService from "./provider.service";
 import PaymentService from "./payment.service";
+import NewsletterSubscriptionsService from "./newslettersubscriptions.service";
 
 export {
     ApiService,
@@ -16,4 +17,5 @@ export {
     QuestionnaireService,
     ProviderService,
     PaymentService,
+    NewsletterSubscriptionsService,
 };

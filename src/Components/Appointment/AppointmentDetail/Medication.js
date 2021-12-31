@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
-
-import { AppointmentService } from "../../../services";
-import { AppointmentActions } from "../../../redux/slice/appointment.slice";
 
 function Medication({ appointmentId, oldMedication, setOldMedication }) {
-    const dispatch = useDispatch();
     const [medication, setMedication] = useState([]);
 
     const handleChange = (event, index, type) => {

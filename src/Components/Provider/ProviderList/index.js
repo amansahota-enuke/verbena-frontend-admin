@@ -3,7 +3,6 @@ import { FullWidthContainer, Pagination } from "../..";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import selector from "../../../redux/selector";
-import ReactPaginate from "react-paginate";
 import { ProviderActions } from "../../../redux/slice/provider.slice";
 import statusConstants from "../../../constants/status.constants";
 import ButtonLoader from "../../Common/ButtonLoader";
@@ -20,7 +19,6 @@ function ProviderList() {
     const providerStatus = useSelector(selector.providerStatus);
     const providerCount = useSelector(selector.providerCount);
     const providerList = useSelector(selector.providerList);
-    const [selectedAdmin, setSelectedAdmin] = useState("");
     const [pageCount, setPageCount] = useState(1);
     const [status, setStatus] = useState("");
     const [providerName, setProviderName] = useState("");
@@ -83,10 +81,9 @@ function ProviderList() {
     };
 
     const openSignupConfirmation = () => {
-        dispatch(ConfirmationActions.setConfirmationType(selectedAdmin));
         dispatch(
           ConfirmationActions.setConfirmationType(
-            confirmationConstants.SignupTokenConfirmation
+            confirmationConstants.SIGNUP_LINK
           )
         );
         dispatch(ConfirmationActions.openConfirmation());

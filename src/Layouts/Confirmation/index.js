@@ -11,9 +11,9 @@ import SignupTokenConfirmation from "./SignupTokenConfirmation";
 const Confirmation = () => {
     const dispatch = useDispatch();
     const isOpen = useSelector(selector.confirmationStatus);
-    const closeModal = () => {
-        dispatch(ConfirmationActions.closeConfirmation());
-    };
+    // const closeModal = () => {
+    //     dispatch(ConfirmationActions.closeConfirmation());
+    // };
 
     return (
         <>
@@ -69,7 +69,7 @@ const SelectedConfirmation = () => {
     switch (confirmationType) {
         case "Test_value":
             return <TestConfirmation />;
-        case confirmationConstants.SignupTokenConfirmation:
+        case confirmationConstants.SIGNUP_LINK:
             return <SignupTokenConfirmation />;
         default:
             return "";
