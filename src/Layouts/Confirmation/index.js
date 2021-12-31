@@ -7,7 +7,7 @@ import confirmationConstants from "../../constants/confirmation.constants";
 import selector from "../../redux/selector";
 import { ConfirmationActions } from "../../redux/slice/confirmation.slice";
 import TestConfirmation from "./TestConfirmation";
-
+import SignupTokenConfirmation from "./SignupTokenConfirmation";
 const Confirmation = () => {
     const dispatch = useDispatch();
     const isOpen = useSelector(selector.confirmationStatus);
@@ -69,6 +69,8 @@ const SelectedConfirmation = () => {
     switch (confirmationType) {
         case "Test_value":
             return <TestConfirmation />;
+        case confirmationConstants.SignupTokenConfirmation:
+            return <SignupTokenConfirmation />;
         default:
             return "";
     }

@@ -11,6 +11,8 @@ import moment from "moment";
 import { Switch } from "@headlessui/react";
 import { toast } from "react-toastify";
 import { ProviderService } from "../../../services";
+import { ConfirmationActions } from "../../../redux/slice/confirmation.slice";
+import confirmationConstants from "../../../constants/confirmation.constants";
 
 function ProviderList() {
     const dispatch = useDispatch();
@@ -18,7 +20,7 @@ function ProviderList() {
     const providerStatus = useSelector(selector.providerStatus);
     const providerCount = useSelector(selector.providerCount);
     const providerList = useSelector(selector.providerList);
-
+    const [selectedAdmin, setSelectedAdmin] = useState("");
     const [pageCount, setPageCount] = useState(1);
     const [status, setStatus] = useState("");
     const [providerName, setProviderName] = useState("");
@@ -80,6 +82,16 @@ function ProviderList() {
         }
     };
 
+    const openSignupConfirmation = () => {
+        dispatch(ConfirmationActions.setConfirmationType(selectedAdmin));
+        dispatch(
+          ConfirmationActions.setConfirmationType(
+            confirmationConstants.SignupTokenConfirmation
+          )
+        );
+        dispatch(ConfirmationActions.openConfirmation());
+      };
+
     return (
         <FullWidthContainer>
             <div className="bg-white rounded-md mb-6">
@@ -87,7 +99,17 @@ function ProviderList() {
                     <h3 className="mb-0 hepta-slab text-lg leading-none">
                         Search Providers
                     </h3>
+                <div className="flex justify-end mb-2">
+                    <button
+                        type="button"
+                        className="btn-login calibre-regular font-16 leading-none uppercase primary-bg-color text-white"
+                        onClick={openSignupConfirmation}
+                    >
+                        Add Provider
+                    </button>
                 </div>
+                </div>
+                
                 <div className="p-4 wrapper-content">
                     <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-4">
                         <div className="relative">
