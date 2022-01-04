@@ -38,14 +38,14 @@ function NewsletterSubscription() {
           <div className="flex items-center justify-between">
             <div>
               <h4 className="count-title hepta-semibold light-dark-gray-color text-2xl">
-                Subscribers
+                Newsletter Subscribers
               </h4>
               <h2 className="count-total calibre-bold text-6xl text-black">
                 {subscribersCount}
               </h2>
             </div>
             <div>
-              <img src="/images/count-patient-vector.png" alt="" title="" />
+              <img src="/images/Newsletter.png" alt="" title="" className="w-20"/>
             </div>
           </div>
       </div>

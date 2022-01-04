@@ -723,6 +723,16 @@ img.profile-image {
   background-position: 0 -705px;
 }
 
+.newsletter
+{
+  background-position: 0 -733px;
+}
+
+.left-menu a:hover span.sprite-menu.newsletter
+{
+  background-position: 0 -762px;
+}
+
 /* ul li css */
 
 ul#tabs li
