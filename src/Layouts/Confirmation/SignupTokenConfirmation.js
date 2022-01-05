@@ -3,13 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { ConfirmationActions } from "../../redux/slice/confirmation.slice";
 import { ProviderService } from "../../services";
+import copy from "copy-to-clipboard";  
 
 function SignupTokenConfirmation() {
   const dispatch = useDispatch();
   const [link, setLink] = useState("")
 
   const closeModal = () => {
-    navigator.clipboard.writeText(link)
+    copy(link)
 
     dispatch(ConfirmationActions.closeConfirmation());
   };
