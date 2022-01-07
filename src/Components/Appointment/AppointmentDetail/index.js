@@ -15,68 +15,66 @@ import Medication from "./Medication";
 import Detail from "./Detail";
 
 function AppointmentDetail() {
-    const dispatch = useDispatch();
-    const { id } = useParams();
-    const appointmentStatus = useSelector(selector.appointmentStatus);
-    const selectedAppointment = useSelector(selector.selectedAppointment);
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const appointmentStatus = useSelector(selector.appointmentStatus);
+  const selectedAppointment = useSelector(selector.selectedAppointment);
 
-    const [oldReports, setOldReports] = useState([]);
-    const [oldMedication, setOldMedication] = useState([]);
+  const [oldReports, setOldReports] = useState([]);
+  const [oldMedication, setOldMedication] = useState([]);
 
-    useEffect(() => {
-        dispatch(AppointmentActions.fetchAppointmentDetail(id));
-    }, [dispatch, id]);
+  useEffect(() => {
+    dispatch(AppointmentActions.fetchAppointmentDetail(id));
+  }, [dispatch, id]);
 
-    useEffect(() => {
-        if (
-            selectedAppointment.appointment_reports &&
-            selectedAppointment.appointment_reports.length > 0
-        ) {
-            setOldReports(selectedAppointment.appointment_reports);
-        }
+  useEffect(() => {
+    if (
+      selectedAppointment.appointment_reports &&
+      selectedAppointment.appointment_reports.length > 0
+    ) {
+      setOldReports(selectedAppointment.appointment_reports);
+    }
 
-        if (
-            selectedAppointment.appointment_medications &&
-            selectedAppointment.appointment_medications.length > 0
-        ) {
-            setOldMedication(selectedAppointment.appointment_medications);
-        }
-    }, [selectedAppointment]);
+    if (
+      selectedAppointment.appointment_medications &&
+      selectedAppointment.appointment_medications.length > 0
+    ) {
+      setOldMedication(selectedAppointment.appointment_medications);
+    }
+  }, [selectedAppointment]);
 
-    return (
-        <FullWidthContainer>
-            {appointmentStatus === statusConstants.PENDING && <Loader />}
-            <div className="container mx-auto px-4 sm:px-6">
-                {/* Appointment Detail */}
-                {selectedAppointment.status === "cancelled" && (
-                    <p className="text-center px-2 py-2 bg-red-500 text-white text-lg">
-                        Cancelled
-                    </p>
-                )}
-                <h2 className="hepta-bold primary-text-color mb-4">
-                    Appointment Details
-                </h2>
-                <div className="col-span-4">
-                    <DoctorDetail selectedAppointment={selectedAppointment} />
+  return (
+    <FullWidthContainer>
+      {appointmentStatus === statusConstants.PENDING && <Loader />}
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Appointment Detail */}
+        {selectedAppointment.status === "cancelled" && (
+          <p className="text-center px-2 py-2 bg-red-500 text-white text-lg">
+            Cancelled
+          </p>
+        )}
+        <h2 className="hepta-bold primary-text-color mb-4">
+          Appointment Details
+        </h2>
+        <div className="col-span-4">
+          <DoctorDetail selectedAppointment={selectedAppointment} />
 
-                    <PatientDetail selectedAppointment={selectedAppointment} />
-                    {selectedAppointment.appointment_reason_id && (
-                        <QuestionnaireDetail />
-                    )}
+          <PatientDetail selectedAppointment={selectedAppointment} />
+          {selectedAppointment.appointment_reason_id && <QuestionnaireDetail />}
 
-                    <Report oldReports={oldReports} />
+          <Report oldReports={oldReports} />
 
-                    <Medication
-                        appointmentId={id}
-                        oldMedication={oldMedication}
-                        setOldMedication={setOldMedication}
-                    />
+          <Medication
+            appointmentId={id}
+            oldMedication={oldMedication}
+            setOldMedication={setOldMedication}
+          />
 
-                    <Detail selectedAppointment={selectedAppointment} />
-                </div>
-            </div>
-        </FullWidthContainer>
-    );
+          <Detail selectedAppointment={selectedAppointment} />
+        </div>
+      </div>
+    </FullWidthContainer>
+  );
 }
 
 export default AppointmentDetail;
