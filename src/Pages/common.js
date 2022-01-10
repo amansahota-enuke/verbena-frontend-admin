@@ -375,7 +375,7 @@ const CommonPage = (props) => {
                 </div>
                 <div className="w-2.5 mr-4">:-</div>
                 <div className="w-auto">
-                  <h3 className="leading-none text-lg calibre-bold">$30</h3>
+                  <h3 className="leading-none text-lg calibre-bold">$35</h3>
                 </div>
               </div>
             </div>
@@ -511,7 +511,7 @@ const CommonPage = (props) => {
                 </div>
                 <div className="w-2.5 mr-4">:-</div>
                 <div className="w-auto">
-                  <h3 className="leading-none text-lg calibre-bold">$30</h3>
+                  <h3 className="leading-none text-lg calibre-bold">$35</h3>
                 </div>
               </div>
             </div>
