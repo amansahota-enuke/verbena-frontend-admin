@@ -83,7 +83,7 @@ const LeftMenu = ({ show }) => {
           >
             <span className="icon sprite-menu newsletter"></span>
             <span className="title capitalize font-18 pl-3">
-              NewsLetter Subscription
+              Newsletter Subscription
             </span>
           </Link>
         </div>
