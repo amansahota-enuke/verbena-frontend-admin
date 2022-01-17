@@ -63,10 +63,9 @@ function PatientDetail({ selectedAppointment }) {
                     )}
                   </div>
                   <div className="font-18 light-dark-gray-color leading-tight">
-                    {moment(
-                      selectedAppointment.appointment_datetime,
-                      "hh:mm"
-                    ).format("LT")}
+                  {moment(selectedAppointment.appointment_datetime).format(
+                      "hh:mm A"
+                    )}
                   </div>
                 </div>
                 <div className="flex flex-nowrap calibre-regular">
