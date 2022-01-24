@@ -1037,3 +1037,20 @@ h1.login-heading
   color: #fff;
   background-color: #009b98;
 }
+
+.slick-slider-inner p
+{
+  max-width: 600px;
+  margin: 40px auto 20px;
+}
+
+.slick-slider-inner p span i
+{
+  color: #009b97;
+}
+
+.author-profile i
+{
+  color: #009b97;
+  font-size: 32px;
+}
