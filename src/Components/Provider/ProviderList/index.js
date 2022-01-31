@@ -84,6 +84,17 @@ function ProviderList() {
     dispatch(ConfirmationActions.openConfirmation());
   };
 
+  const handleDeleteProvider = (id) => {
+    dispatch(ProviderActions.DeleteProvider(getProviderList));
+    dispatch(ProviderActions.ProviderId(id))
+    dispatch(
+      ConfirmationActions.setConfirmationType(
+        confirmationConstants.DELETE_PROVIDER
+      )
+    );
+    dispatch(ConfirmationActions.openConfirmation());
+  };
+
   return (
     <FullWidthContainer>
       <div className="bg-white rounded-md mb-6">
@@ -227,6 +238,12 @@ function ProviderList() {
                   >
                     Profile
                   </th>
+                  <th
+                    scope="col"
+                    className="dark-gray-color px-6 py-3 text-center font-18 uppercase tracking-wider"
+                  >
+                    Delete
+                  </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200 calibre-regular">
@@ -282,6 +299,13 @@ function ProviderList() {
                         >
                           <i className="fas fa-eye"></i>
                         </Link>
+                      </td>
+                      <td className="px-6 dark-gray-color py-4 whitespace-nowrap text-center font-18">
+                        <button
+                          onClick={() => handleDeleteProvider(provider.id)}
+                        >
+                          <i className="fas fa-times"></i>
+                        </button>
                       </td>
                     </tr>
                   ))

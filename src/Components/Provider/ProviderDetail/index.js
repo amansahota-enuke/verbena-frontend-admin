@@ -244,16 +244,6 @@ function Index(props) {
                       )}
                   </div>
                 </div>
-
-                <div className="flex xl:flex-nowrap lg:flex-nowrap md:flex-wrap sm:flex-wrap mb-4 border-b-2">
-                  <div className="mr-4">
-                    <img src="images/icon-5.png" alt="" title="" />
-                  </div>
-                  <div>
-                    <h2 className="mb-2 text-lg leading-none">Gender</h2>
-                    <p className="mid-dark-gray-color mb-2 text-lg">Male</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
