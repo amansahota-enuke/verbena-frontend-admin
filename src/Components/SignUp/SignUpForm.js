@@ -203,7 +203,7 @@ const SignUpForm = (props) => {
                       {errors.password?.message}
                     </span>
                     <span
-                      className="cursor-pointer eye absolute right-40 top-4"
+                      className="cursor-pointer eye absolute xl:right-40 lg:right-40 md:right-10 sm:right-10 right-10 top-4"
                       onClick={handleShowPassword}
                     >
                       <i
@@ -229,7 +229,7 @@ const SignUpForm = (props) => {
                       {errors.confirmPassword?.message}
                     </span>
                     <span
-                      className="cursor-pointer eye absolute right-40 top-4"
+                      className="cursor-pointer eye absolute xl:right-40 lg:right-40 md:right-10 sm:right-10 right-10 top-4"
                       onClick={handleShowConfirmPassword}
                     >
                       <i
