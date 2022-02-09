@@ -176,7 +176,7 @@ body
 
 .thead-bg
 {
-  background-color: #c4e9e7;
+  background-color: #3399338c;
 }
 
 .thead-gray-bg
@@ -376,7 +376,7 @@ input,label,span,p,li,ul
 
 .primary-text-color
 {
-  color: #009b98;
+  color: #339933;
 }
 
 .light-gray-color
@@ -406,14 +406,14 @@ input,label,span,p,li,ul
 
 .success
 {
-  color: #009b98;
+  color: #3399338c;
 }
 
 /* background color */
 
 .primary-bg-color
 {
-  background-color: #009b98;
+  background-color: #339933;
 }
 
 .primary-light-bg-color
@@ -1024,18 +1024,18 @@ h1.login-heading
 .custom-pagination .pagination > li > a, 
 .custom-pagination .pagination > li > span
 {
- color: #009b98;
+ color: #3399338c;
 }
 
 .custom-pagination .pagination > li > a
 {
-  border: 1px solid #009b98;
+  border: 1px solid #3399338c;
 }
 
 .custom-pagination .pagination > li.active > a
 {
   color: #fff;
-  background-color: #009b98;
+  background-color: #3399338c;
 }
 
 .slick-slider-inner p
@@ -1046,11 +1046,11 @@ h1.login-heading
 
 .slick-slider-inner p span i
 {
-  color: #009b97;
+  color: #3399338c;
 }
 
 .author-profile i
 {
-  color: #009b97;
+  color: #3399338c;
   font-size: 32px;
 }
