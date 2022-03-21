@@ -43,7 +43,7 @@ function Index() {
   }, [paymentCount]);
 
   const handlePageChange = ({ selected }) => {
-    getPaymentList(selected);
+    getPaymentList(selected + 1);
   };
 
   useEffect(() => {

@@ -56,7 +56,7 @@ function AppointmentList() {
   }, [appointmentCount]);
 
   const handlePageChange = ({ selected }) => {
-    getAppointment(selected);
+    getAppointment(selected + 1);
   };
 
   useEffect(() => {

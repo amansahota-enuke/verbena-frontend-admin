@@ -45,7 +45,7 @@ function ProviderList() {
   }, [providerCount]);
 
   const handlePageChange = ({ selected }) => {
-    getProviderList(selected);
+    getProviderList(selected + 1);
   };
 
   useEffect(() => {
@@ -86,7 +86,7 @@ function ProviderList() {
 
   const handleDeleteProvider = (id) => {
     dispatch(ProviderActions.DeleteProvider(getProviderList));
-    dispatch(ProviderActions.ProviderId(id))
+    dispatch(ProviderActions.ProviderId(id));
     dispatch(
       ConfirmationActions.setConfirmationType(
         confirmationConstants.DELETE_PROVIDER
