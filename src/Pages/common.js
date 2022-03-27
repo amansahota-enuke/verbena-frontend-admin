@@ -317,7 +317,7 @@ const CommonPage = (props) => {
                     Patient Name
                   </h3>
                 </div>
-                <div className="w-2.5 mr-4">:-</div>
+                <div className="w-2.5 mr-4">:</div>
                 <div className="w-auto">
                   <h3 className="leading-none text-lg calibre-bold">
                     Joe Smith
@@ -328,7 +328,7 @@ const CommonPage = (props) => {
                 <div className="w-36">
                   <h3 className="leading-none text-lg calibre-regular">Age</h3>
                 </div>
-                <div className="w-2.5 mr-4">:-</div>
+                <div className="w-2.5 mr-4">:</div>
                 <div className="w-auto">
                   <h3 className="leading-none text-lg calibre-bold">
                     29 Years
@@ -341,7 +341,7 @@ const CommonPage = (props) => {
                     Gender
                   </h3>
                 </div>
-                <div className="w-2.5 mr-4">:-</div>
+                <div className="w-2.5 mr-4">:</div>
                 <div className="w-auto">
                   <h3 className="leading-none text-lg calibre-bold">Male</h3>
                 </div>
@@ -373,7 +373,7 @@ const CommonPage = (props) => {
                     Consultation
                   </h3>
                 </div>
-                <div className="w-2.5 mr-4">:-</div>
+                <div className="w-2.5 mr-4">:</div>
                 <div className="w-auto">
                   <h3 className="leading-none text-lg calibre-bold">$35</h3>
                 </div>
@@ -472,7 +472,7 @@ const CommonPage = (props) => {
                     Patient Name
                   </h3>
                 </div>
-                <div className="w-2.5 mr-4">:-</div>
+                <div className="w-2.5 mr-4">:</div>
                 <div className="w-auto">
                   <h3 className="leading-none text-lg calibre-bold">
                     Joe Smith
@@ -483,7 +483,7 @@ const CommonPage = (props) => {
                 <div className="w-36">
                   <h3 className="leading-none text-lg calibre-regular">Age</h3>
                 </div>
-                <div className="w-2.5 mr-4">:-</div>
+                <div className="w-2.5 mr-4">:</div>
                 <div className="w-auto">
                   <h3 className="leading-none text-lg calibre-bold">
                     29 Years
@@ -496,7 +496,7 @@ const CommonPage = (props) => {
                     Gender
                   </h3>
                 </div>
-                <div className="w-2.5 mr-4">:-</div>
+                <div className="w-2.5 mr-4">:</div>
                 <div className="w-auto">
                   <h3 className="leading-none text-lg calibre-bold">Male</h3>
                 </div>
@@ -509,7 +509,7 @@ const CommonPage = (props) => {
                     Consultation
                   </h3>
                 </div>
-                <div className="w-2.5 mr-4">:-</div>
+                <div className="w-2.5 mr-4">:</div>
                 <div className="w-auto">
                   <h3 className="leading-none text-lg calibre-bold">$35</h3>
                 </div>
