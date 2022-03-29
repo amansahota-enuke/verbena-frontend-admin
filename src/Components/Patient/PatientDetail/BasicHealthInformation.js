@@ -8,7 +8,6 @@ import Loader from "../../Common/Loader";
 import statusConstants from "../../../constants/status.constants";
 import selector from "../../../redux/selector";
 import { QuestionnaireActions } from "../../../redux/slice/questionnaire.slice";
-import ProgressBar from "@ramonak/react-progress-bar";
 
 const BasicHealthInformation = () => {
   const dispatch = useDispatch();
@@ -24,7 +23,7 @@ const BasicHealthInformation = () => {
     if (!question.parent_question_id) {
       return true;
     }
-    const parentQuestion = basicQuestionnaire.find(
+    const parentQuestion = basicQuestionnaire.data.find(
       (ele) => ele.id === question.parent_question_id
     );
     const answer = parentQuestion.basic_health_responses.find(
@@ -55,32 +54,34 @@ const BasicHealthInformation = () => {
             </Disclosure.Button>
             <Disclosure.Panel className="pb-2 text-sm">
               <div className="bg-white rounded-t-none mb-3">
-                {basicQuestionnaire.map((question) => {
-                  const showQuestion = checkQuestion(question);
-                  if (showQuestion) {
-                    return (
-                      <div className="health-info border-b-1">
-                        <h3 className="font-18 dark-color px-4 py-0 mb-0 pt-3 calibre-bold">
-                          {question.text}
-                        </h3>
-                        {question.basic_health_responses.length > 0 ? (
-                          question.basic_health_responses.map((response) => (
+                {basicQuestionnaire &&
+                  basicQuestionnaire.data &&
+                  basicQuestionnaire.data.map((question) => {
+                    const showQuestion = checkQuestion(question);
+                    if (showQuestion) {
+                      return (
+                        <div className="health-info border-b-1">
+                          <h3 className="font-18 dark-color px-4 py-0 mb-0 pt-3 calibre-bold">
+                            {question.text}
+                          </h3>
+                          {question.basic_health_responses.length > 0 ? (
+                            question.basic_health_responses.map((response) => (
+                              <p className="font-16 px-4 py-0 mb-2 calibre-regular">
+                                {response.answer_text
+                                  ? response.answer_text
+                                  : response.basic_health_answer_option.text}
+                              </p>
+                            ))
+                          ) : (
                             <p className="font-16 px-4 py-0 mb-2 calibre-regular">
-                              {response.answer_text
-                                ? response.answer_text
-                                : response.basic_health_answer_option.text}
+                              No Response
                             </p>
-                          ))
-                        ) : (
-                          <p className="font-16 px-4 py-0 mb-2 calibre-regular">
-                            No Response
-                          </p>
-                        )}
-                      </div>
-                    );
-                  }
-                  return null;
-                })}
+                          )}
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
               </div>
             </Disclosure.Panel>
           </>
