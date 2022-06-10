@@ -108,13 +108,13 @@ const LoginForm = (props) => {
               Login
             </button>
 
-            <button
+            {/* <button
               type="button"
               className="btn-create-account calibre-regular font-16 uppercase primary-text-color"
               onClick={() => history.push("/signup")}
             >
               Create Account
-            </button>
+            </button> */}
           </div>
 
           <div className="d-flex items-center mb-20">
